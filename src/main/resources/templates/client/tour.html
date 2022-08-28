@@ -48,7 +48,7 @@
 							<ul class="product_list_widget">
 								<li th:each="item : ${products}">
 									<a
-										th:href="@{/href}">
+										th:href="@{'/tour/views/' +${item.id}}">
 										<img width="300" height="300"
 											th:src="@{ ${item.images}}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
@@ -80,7 +80,7 @@
 											<div class="box-image">
 												<div class="image-fade_in_back">
 													<a
-														th:href="@{/href}">
+														th:href="@{'/tour/views/' +${item.id}}">
 														<img width="300"  style="height: 300px!important;"
 															th:src="@{${item.images}}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"

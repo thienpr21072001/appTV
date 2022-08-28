@@ -11,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.entity.Product;
+import com.app.exception.ResourceNotFoundException;
 import com.app.model.PagingSearchFilterProduct;
 import com.app.repository.ProductRepository;
 import com.app.service.ProductService;
@@ -61,8 +63,20 @@ public class TourController {
 				break;
 			}
 		}
-	 
 		
 		return "client/tour";
 	}
+	
+	@GetMapping("/views/{id}")
+	public String view(Model map,@PathVariable("id") long id) {
+		Product product = productService.getById(id);
+		if(product == null) {
+			throw new ResourceNotFoundException("product not found with id :" + id);
+		}
+		map.addAttribute("product", product);
+ 
+		return "client/tour-detail";
+	}
+	
+	
 }

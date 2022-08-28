@@ -683,7 +683,7 @@
                                   class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
                                   aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
                               <p style="font-size: 2em;">Giá tour: $<span th:text=${item.price}></span></p>
-                              <a class="button primary is-xlarge" style="border-radius:20px;">
+                              <a th:href="@{'/tour/views/' +${item.id}}" class="button primary is-xlarge" style="border-radius:20px;">
                                 <span>Xem ngay</span>
                               </a>
                             </div>
