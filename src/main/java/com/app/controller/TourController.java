@@ -74,6 +74,9 @@ public class TourController {
 			throw new ResourceNotFoundException("product not found with id :" + id);
 		}
 		map.addAttribute("product", product);
+		List<Product> productSame = productRepo.findAllByStatusAndProvinceId(1, product.getProvinceId());
+		
+		map.addAttribute("productSame", productSame);
  
 		return "client/tour-detail";
 	}

@@ -22,7 +22,7 @@
             <div class="page-title-inner flex-row  medium-flex-wrap container">
                <div class="flex-col flex-grow medium-text-center">
                   <div class="is-small">
-                     <nav class="woocommerce-breadcrumb breadcrumbs"><a href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span class="divider">&#47;</span> <a href="javascript:void(0)">Tour du lịch</a> <span class="divider">&#47;</span>  <a th:href="@{'/tour/list/1?provinceId=' + ${product.provinceId}}">Phan Thiết</a></nav>
+                     <nav class="woocommerce-breadcrumb breadcrumbs"><a href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span class="divider">&#47;</span> <a href="javascript:void(0)">Tour du lịch</a> <span class="divider">&#47;</span>  <a th:href="@{'/tour/list/1?provinceId=' + ${product.provinceId}}" th:text="${product.provinceText}"></a></nav>
                   </div>
                </div>
                <!-- .flex-left -->
@@ -62,7 +62,7 @@
                                        "rightToLeft": false       }'>
                                        <div data-thumb="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-100x100.png" class="first slide woocommerce-product-gallery__image">
                                        <a href="javascript:void(0)">
-                                       <img width="600" height="450" th:src="@{ ${product.images}}" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
+                                       <img width="600" style="height: 450px !important;" th:src="@{ ${product.images}}"  /></a></div>
                                     </figure>
                                     <div class="image-tools absolute bottom left z-3">
                                        <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
@@ -270,17 +270,18 @@
                               <!-- .tabbed-content -->
                               <div class="related related-products-wrapper product-section">
                                  <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">
-                                    Sản phẩm tương tự    
+                                    Tour tương tự   
                                  </h3>
                                  <div class="row large-columns-4 medium-columns- small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push"  data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-                                    <div class="product-small col has-hover post-84 product type-product status-publish has-post-thumbnail product_cat-con-dao product_cat-mien-nam product_cat-tour-du-lich pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-78  instock shipping-taxable purchasable product-type-simple">
+                 
+                                    <div  th:each="item : ${productSame}" class="product-small col has-hover post-84 product type-product status-publish has-post-thumbnail product_cat-con-dao product_cat-mien-nam product_cat-tour-du-lich pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-78  instock shipping-taxable purchasable product-type-simple">
                                        <div class="col-inner">
                                           <div class="badge-container absolute left top z-1"></div>
                                           <div class="product-small box ">
                                              <div class="box-image">
                                                 <div class="image-fade_in_back">
-                                                   <a href="../du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/offers_slide_2-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
+                                                   <a th:href="@{'/tour/views/' + ${item.id}}">
+                                                   <img width="300" style="height: 300px!important;" th:src="@{ ${item.images}}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt=""  />	 	</a>
                                                 </div>
                                                 <div class="image-tools is-small top right show-on-hover">
                                                 </div>
@@ -292,13 +293,13 @@
                                              <!-- box-image -->
                                              <div class="box-text box-text-products">
                                                 <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Côn Đảo		
+                                                   <p th:text="${item.provinceText}" class="category uppercase is-smaller no-text-overflow product-cat op-7">
+                                                      		
                                                    </p>
-                                                   <p class="name product-title"><a href="../du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon/index.html">Du Lịch Côn Đảo 2 ngày 1 đêm bay từ Sài Gòn</a></p>
+                                                   <p class="name product-title"><a th:href="@{'/tour/views/' + ${item.id}}" th:text="${item.name}"> </a></p>
                                                 </div>
                                                 <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">5,299,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
+                                                   <span class="price"><span class="woocommerce-Price-amount amount" th:text="${item.price}"> <span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
                                                 </div>
                                              </div>
                                              <!-- box-text -->
@@ -308,250 +309,9 @@
                                        <!-- .col-inner -->
                                     </div>
                                     <!-- col -->
-                                    <div class="product-small col has-hover post-72 product type-product status-publish has-post-thumbnail product_cat-mien-trung product_cat-phu-yen product_cat-tour-du-lich pa_noi-khoi-hanh-ha-noi pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-79  instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../du-lich-phu-yen-3-ngay-2-dem-gia-tiet-kiem-dip-tet-duong-lich-2018/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/01/blog-img7-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/01/blog-img7-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/01/blog-img7-100x100.jpg 100w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/01/blog-img7-150x150.jpg 150w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Miền trung		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../du-lich-phu-yen-3-ngay-2-dem-gia-tiet-kiem-dip-tet-duong-lich-2018/index.html">Du Lịch Phú Yên 3 ngày 2 đêm giá tiết kiệm dịp tết Dương Lịch 2019</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">4,299,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
-                                    <!-- col -->
-                                    <div class="product-small col has-hover post-1257 product type-product status-publish has-post-thumbnail product_cat-da-lat product_cat-mien-nam product_cat-tour-du-lich pa_loai-giuong-giuong-doi pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-71 last instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../du-lich-da-lat-2018-gia-tot-khoi-hanh-tu-sai-gon/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/Sapa-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Đà Lạt		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../du-lich-da-lat-2018-gia-tot-khoi-hanh-tu-sai-gon/index.html">Du Lịch Đà Lạt 2018 giá tốt khởi hành từ Sài Gòn</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">14,999,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
-                                    <!-- col -->
-                                    <div class="product-small col has-hover post-119 product type-product status-publish has-post-thumbnail product_cat-da-nang product_cat-mien-trung product_cat-tour-du-lich pa_noi-khoi-hanh-ha-noi pa_so-ngay-76 first instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../du-lich-bo-tay-hoa-ky-7-ngay-los-angeles-las-vegas-gia-tot-2018/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/BaNa-1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/BaNa-1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/BaNa-1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/BaNa-1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Đà Nẵng		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../du-lich-bo-tay-hoa-ky-7-ngay-los-angeles-las-vegas-gia-tot-2018/index.html">Du lịch Đà Nẵng giá tốt 2018</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">34,900,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
-                                    <!-- col -->
-                                    <div class="product-small col has-hover post-1258 product type-product status-publish has-post-thumbnail product_cat-con-dao product_cat-mien-nam product_cat-tour-du-lich pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-78  instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon-2/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/sea_tour_img_1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Côn Đảo		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon-2/index.html">Du Lịch Côn Đảo 2 ngày 1 đêm bay từ Sài Gòn</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">5,299,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
-                                    <!-- col -->
-                                    <div class="product-small col has-hover post-1251 product type-product status-publish has-post-thumbnail product_cat-mien-bac product_cat-sapa product_cat-tour-du-lich pa_noi-khoi-hanh-ha-noi pa_so-ngay-80  instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../tour-mien-bac-ha-noi-ha-long-sapa-fansipan-gia-tiet-kiem-2018-2/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/HaLong-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/HaLong-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/HaLong-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/HaLong-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/HaLong-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Miền bắc		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../tour-mien-bac-ha-noi-ha-long-sapa-fansipan-gia-tiet-kiem-2018-2/index.html">Tour Miền Bắc &#8211; Hà Nội &#8211; Hạ Long &#8211; Sapa &#8211; Fansipan giá tiết kiệm 2018</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">7,599,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
-                                    <!-- col -->
-                                    <div class="product-small col has-hover post-66 product type-product status-publish has-post-thumbnail product_cat-da-nang product_cat-mien-trung product_cat-tour-du-lich pa_noi-khoi-hanh-ha-noi pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-78 last instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../tour-mien-trung-tang-ve-cap-treo-buffet-trua-toi-ks4-tai-ba-na/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/Phoco_hoian-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Đà Nẵng		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../tour-mien-trung-tang-ve-cap-treo-buffet-trua-toi-ks4-tai-ba-na/index.html">Tour Miền Trung, Tặng vé cáp treo, Buffet trưa, tối &#038; KS4* tại Bà Nà</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">4,699,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
-                                    <!-- col -->
-                                    <div class="product-small col has-hover post-101 product type-product status-publish has-post-thumbnail product_cat-da-lat product_cat-mien-nam product_cat-tour-du-lich pa_loai-giuong-giuong-doi pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-71 first instock shipping-taxable purchasable product-type-simple">
-                                       <div class="col-inner">
-                                          <div class="badge-container absolute left top z-1"></div>
-                                          <div class="product-small box ">
-                                             <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                   <a href="../du-lich-han-quoc-2018-gia-tot-khoi-hanh-tu-sai-gon-bay-vietjet-air/index.html">
-                                                   <img width="300" height="300" src="../../content/uploads/2018/12/dalat-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" />				</a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                             </div>
-                                             <!-- box-image -->
-                                             <div class="box-text box-text-products">
-                                                <div class="title-wrapper">
-                                                   <p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-                                                      Đà Lạt		
-                                                   </p>
-                                                   <p class="name product-title"><a href="../du-lich-han-quoc-2018-gia-tot-khoi-hanh-tu-sai-gon-bay-vietjet-air/index.html">Du Lịch Đà Lạt 2018 giá tốt khởi hành từ Sài Gòn</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                   <span class="price"><span class="woocommerce-Price-amount amount">14,999,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
-                                                </div>
-                                             </div>
-                                             <!-- box-text -->
-                                          </div>
-                                          <!-- box -->
-                                       </div>
-                                       <!-- .col-inner -->
-                                    </div>
+              
+    
+ 
                                     <!-- col -->
                                  </div>
                               </div>

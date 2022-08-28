@@ -19,5 +19,8 @@ public interface ProductRepository  extends PagingAndSortingRepository<Product, 
 	
 	@Query(nativeQuery = true, value = "SELECT * from product order by id desc limit 6 ")
 	List<Product> findNew6Product();
+	
+	
+	List<Product> findAllByStatusAndProvinceId(int status, int provinceId);
  
 }
