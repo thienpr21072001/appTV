@@ -28,7 +28,7 @@ public class TourController {
 
 	@RequestMapping("/list/{page}")
 	public String showProduct(Model model, @ModelAttribute("searchForm") PagingSearchFilterProduct searchForm, HttpSession session, 
-			@PathVariable("page") int page, @RequestParam("province") int provinceId) {
+			@PathVariable("page") int page, @RequestParam("provinceId") int provinceId) {
 		searchForm.setPage(page);
 		searchForm.setProvinceId(provinceId);
 		Page<Product> pageProduct = productService.getAll(searchForm);
