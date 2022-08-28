@@ -3,6 +3,8 @@
  */
 package com.app.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.entity.Product;
 import com.app.model.PagingSearchFilterProduct;
+import com.app.repository.ProductRepository;
 import com.app.service.ProductService;
 import com.app.utils.Constant;
 
@@ -26,6 +29,9 @@ public class TourController {
 	@Autowired
 	ProductService productService;
 
+	@Autowired
+	ProductRepository productRepo;
+	
 	@RequestMapping("/list/{page}")
 	public String showProduct(Model model, @ModelAttribute("searchForm") PagingSearchFilterProduct searchForm, HttpSession session, 
 			@PathVariable("page") int page, @RequestParam("provinceId") int provinceId) {
@@ -43,6 +49,9 @@ public class TourController {
 			model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
 			session.removeAttribute(Constant.MSG_SUCCESS);
 		}
+		
+		List<Product> productList = productRepo.findNew6Product();
+		model.addAttribute("products", productList);
 		
 		return "client/tour/tour-list";
 	}
