@@ -21,6 +21,7 @@ import com.app.model.PagingSearchFilterProduct;
 import com.app.repository.ProductRepository;
 import com.app.service.ProductService;
 import com.app.utils.Constant;
+import com.app.utils.ProvinceUtil;
 
 @Controller
 @RequestMapping("/tour")
@@ -53,6 +54,13 @@ public class TourController {
 		
 		List<Product> productList = productRepo.findNew6Product();
 		model.addAttribute("products", productList);
+		
+		for(ProvinceUtil provinceUtil : ProvinceUtil.values()) {
+			if(provinceUtil.getValue() == provinceId) {
+				model.addAttribute("provinceText", provinceUtil.getText());
+				break;
+			}
+		}
 	 
 		
 		return "client/tour";
