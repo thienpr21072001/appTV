@@ -23,9 +23,11 @@
 			<div class="page-title-inner flex-row  medium-flex-wrap container">
 				<div class="flex-col flex-grow medium-text-center">
 					<div class="is-small">
-						<nav class="woocommerce-breadcrumb breadcrumbs"><a
-								href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span
-								class="divider">&#47;</span> Tour du lịch</nav>
+						<nav class="woocommerce-breadcrumb breadcrumbs">
+						<a href="/trang-chu">Trang chủ</a> 
+						<span class="divider">&#47;</span> Tour du lịch
+						<span class="divider">&#47;</span> Tour du lịch
+						</nav>
 					</div>
 					<div class="category-filtering category-filter-row show-for-medium">
 						<a href="#" data-open="#shop-sidebar" data-visible-after="true" data-pos="left"
@@ -38,21 +40,7 @@
 					</div>
 				</div>
 				<!-- .flex-left -->
-				<div class="flex-col medium-text-center  form-flat">
-					<p class="woocommerce-result-count hide-for-medium">
-						Hiển thị 1&ndash;12 trong 24 kết quả
-					</p>
-					<form class="woocommerce-ordering" method="get">
-						<select name="orderby" class="orderby">
-							<option value="menu_order" selected='selected'>Thứ tự mặc định</option>
-							<option value="popularity">Thứ tự theo mức độ phổ biến</option>
-							<option value="rating">Thứ tự theo điểm đánh giá</option>
-							<option value="date">Thứ tự theo sản phẩm mới</option>
-							<option value="price">Thứ tự theo giá: thấp đến cao</option>
-							<option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
-						</select>
-					</form>
-				</div>
+			 
 				<!-- .flex-right -->
 			</div>
 			<!-- flex-row -->
@@ -146,12 +134,19 @@
 							<!-- row -->
 							<div class="container">
 								<nav class="woocommerce-pagination">
-									<ul class="page-numbers nav-pagination links text-center">
-										<li><span aria-current='page' class='page-number current'>1</span></li>
-										<li><a class='page-number' href="page/2/index.html">2</a></li>
-										<li><a class="next page-number" href="page/2/index.html"><i
-													class="icon-angle-right"></i></a></li>
-									</ul>
+									  <ul   class="page-numbers nav-pagination links text-center"> 
+						             	 	<th:block th:if="${pageProduct.getTotalElements() > 0 }">
+												<th:block th:each="i : ${#numbers.sequence(1, pageProduct.getTotalPages() )}">    
+													<li th:if="${i == pageProduct.getNumber() + 1}"  class="page-number current" style="background-color: yellow">
+														  <a href="javascript:void(0)" th:text="${i}"/>
+													</li>
+													<li th:unless="${i == pageProduct.getNumber() + 1}" class="page-number">
+														   <a  th:onclick="gotoPage([[${i}]])" th:text="${i}"/>
+													 </li>
+												</th:block>
+											</th:block>       
+						              </ul> 
+ 
 								</nav>
 							</div>
 						</div>
@@ -161,9 +156,7 @@
 			</div>
 		</main>
 		<!-- #main -->
-		<footer th:replace="layoutsClient::footer" id="footer" class="footer-wrapper">
-			 
-		</footer>
+	 
 		<!-- .footer-wrapper -->
 	</div>
 	<!-- #wrapper -->
@@ -366,6 +359,12 @@
 	<script type='text/javascript'
 		th:src="@{/content/plugins/ot-flatsome-vertical-menu/assets/js/ot-vertical-menuf488.js?ver=1.1.0}"></script>
 	<script type='text/javascript'>
+		function gotoPage(page){
+			var provinceId = '[[${searchForm.provinceId}]]';
+			location.href="/tour/list/"+page+"?provinceId="+provinceId;
+		}
+	
+	
 		/* <![CDATA[ */
 		var wc_add_to_cart_params = { "ajax_url": "\/lets-travel\/wp-admin\/admin-ajax.php", "wc_ajax_url": "http:\/\/mauweb.monamedia.net\/lets-travel\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "Xem gi\u1ecf h\u00e0ng", "cart_url": "http:\/\/mauweb.monamedia.net\/lets-travel\/gio-hang\/", "is_cart": "", "cart_redirect_after_add": "no" };
          /* ]]> */

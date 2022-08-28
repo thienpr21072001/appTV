@@ -53,6 +53,7 @@ public class TourController {
 		
 		List<Product> productList = productRepo.findNew6Product();
 		model.addAttribute("products", productList);
+	 
 		
 		return "client/tour";
 	}
