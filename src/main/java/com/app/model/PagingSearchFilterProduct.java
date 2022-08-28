@@ -3,6 +3,7 @@ package com.app.model;
 public class PagingSearchFilterProduct{
 	private String keyword ;
 	private long cateId ;
+	private long provinceId;
 	 
 	private int pageSize = 5;
 	private int page  ;
@@ -49,6 +50,14 @@ public class PagingSearchFilterProduct{
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+
+	public long getProvinceId() {
+		return provinceId;
+	}
+
+	public void setProvinceId(long provinceId) {
+		this.provinceId = provinceId;
 	}
  
 	

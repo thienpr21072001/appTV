@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.entity.Product;
 import com.app.model.PagingSearchFilterProduct;
@@ -24,11 +25,12 @@ public class TourController {
 	
 	@Autowired
 	ProductService productService;
-	
 
 	@RequestMapping("/list/{page}")
-	public String showProduct(Model model, @ModelAttribute("searchForm") PagingSearchFilterProduct searchForm, HttpSession session, @PathVariable("page") int page) {
+	public String showProduct(Model model, @ModelAttribute("searchForm") PagingSearchFilterProduct searchForm, HttpSession session, 
+			@PathVariable("page") int page, @RequestParam("province") int provinceId) {
 		searchForm.setPage(page);
+		searchForm.setProvinceId(provinceId);
 		Page<Product> pageProduct = productService.getAll(searchForm);
 		model.addAttribute("searchForm", searchForm);
 		model.addAttribute("pageProduct",pageProduct);
@@ -42,6 +44,6 @@ public class TourController {
 			session.removeAttribute(Constant.MSG_SUCCESS);
 		}
 		
-		return "product/product-list";
+		return "client/tour/tour-list";
 	}
 }
