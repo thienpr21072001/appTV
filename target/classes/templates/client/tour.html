@@ -2,7 +2,7 @@
 <html lang="vi" class="loading-site no-js">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
-<head th:replace="layoutsClient::header">
+<head th:replace="layoutsClient::head">
  
 </head>
 
@@ -10,191 +10,8 @@
 	class="archive tax-product_cat term-tour-du-lich term-92 woocommerce woocommerce-page lightbox nav-dropdown-has-arrow">
 	<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
 	<div id="wrapper">
-		<header id="header" class="header transparent has-transparent nav-dark toggle-nav-dark has-sticky sticky-jump">
-			<div class="header-wrapper">
-				<div id="masthead" class="header-main hide-for-sticky">
-					<div class="header-inner flex-row container logo-left medium-logo-center" role="navigation">
-						<!-- Logo -->
-						<div id="logo" class="flex-col logo">
-							<!-- Header logo -->
-							<a href="../../index.html" title="Let&#8217;s Travel - Một trang web mới sử dụng WordPress"
-								rel="home">
-								<img width="200" height="100" src="../../content/uploads/2018/12/logo_dark.png"
-									class="header_logo header-logo" alt="Let&#8217;s Travel" /><img width="200"
-									height="100" src="../../content/uploads/2018/12/logo_dark.png"
-									class="header-logo-dark" alt="Let&#8217;s Travel" /></a>
-						</div>
-						<!-- Mobile Left Elements -->
-						<div class="flex-col show-for-medium flex-left">
-							<ul class="mobile-nav nav nav-left ">
-								<li class="nav-icon has-icon">
-									<a href="#" data-open="#main-menu" data-pos="left" data-bg="main-menu-overlay"
-										data-color="" class="is-small" aria-controls="main-menu" aria-expanded="false">
-										<i class="icon-menu"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<!-- Left Elements -->
-						<div class="flex-col hide-for-medium flex-left
-                        flex-grow">
-							<ul class="header-nav header-nav-main nav nav-left  nav-uppercase">
-							</ul>
-						</div>
-						<!-- Right Elements -->
-						<div class="flex-col hide-for-medium flex-right">
-							<ul class="header-nav header-nav-main nav nav-right  nav-uppercase">
-								<li id="menu-item-1113"
-									class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  menu-item-1113">
-									<a href="../../index.html" class="menu-image-title-after nav-top-link"><span
-											class="menu-image-title">Trang chủ</span></a></li>
-								<li id="menu-item-1114"
-									class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1114"><a
-										href="../../gioi-thieu/index.html"
-										class="menu-image-title-after nav-top-link"><span class="menu-image-title">Giới
-											thiệu</span></a></li>
-								<li id="menu-item-1226"
-									class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-menu-item menu-item-has-children  menu-item-1226 has-dropdown">
-									<a href="index.html" class="menu-image-title-after nav-top-link"><span
-											class="menu-image-title">Tour du lịch</span></a>
-									<ul class='nav-dropdown nav-dropdown-simple'>
-										<li id="menu-item-1227"
-											class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1227 nav-dropdown-col">
-											<a href="mien-bac/index.html" class="menu-image-title-after"><span
-													class="menu-image-title">Miền bắc</span></a>
-											<ul class='nav-column nav-dropdown-simple'>
-												<li id="menu-item-1228"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1228">
-													<a href="mien-bac/ha-noi/index.html"
-														class="menu-image-title-after"><span class="menu-image-title">Hà
-															Nội</span></a></li>
-												<li id="menu-item-1229"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1229">
-													<a href="mien-bac/sapa/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Sapa</span></a></li>
-												<li id="menu-item-1230"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1230">
-													<a href="mien-bac/vinh-ha-long/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Vịnh Hạ Long</span></a></li>
-											</ul>
-										</li>
-										<li id="menu-item-1231"
-											class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1231 nav-dropdown-col">
-											<a href="mien-trung/index.html" class="menu-image-title-after"><span
-													class="menu-image-title">Miền trung</span></a>
-											<ul class='nav-column nav-dropdown-simple'>
-												<li id="menu-item-1233"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1233">
-													<a href="mien-trung/hue/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Huế</span></a></li>
-												<li id="menu-item-1232"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1232">
-													<a href="mien-trung/da-nang/index.html"
-														class="menu-image-title-after"><span class="menu-image-title">Đà
-															Nẵng</span></a></li>
-												<li id="menu-item-1235"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1235">
-													<a href="mien-trung/phu-yen/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Phú Yên</span></a></li>
-												<li id="menu-item-1234"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1234">
-													<a href="mien-trung/nha-trang/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Nha Trang</span></a></li>
-												<li id="menu-item-1236"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1236">
-													<a href="mien-trung/quang-nam/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Quảng Nam</span></a></li>
-											</ul>
-										</li>
-										<li id="menu-item-1237"
-											class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1237 nav-dropdown-col">
-											<a href="mien-nam/index.html" class="menu-image-title-after"><span
-													class="menu-image-title">Miền nam</span></a>
-											<ul class='nav-column nav-dropdown-simple'>
-												<li id="menu-item-1239"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1239">
-													<a href="mien-nam/da-lat/index.html"
-														class="menu-image-title-after"><span class="menu-image-title">Đà
-															Lạt</span></a></li>
-												<li id="menu-item-1238"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1238">
-													<a href="mien-nam/con-dao/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Côn Đảo</span></a></li>
-												<li id="menu-item-1240"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1240">
-													<a href="mien-nam/phan-thiet/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Phan Thiết</span></a></li>
-												<li id="menu-item-1241"
-													class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1241">
-													<a href="mien-nam/phu-quoc/index.html"
-														class="menu-image-title-after"><span
-															class="menu-image-title">Phú Quốc</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li id="menu-item-1242"
-									class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-1242">
-									<a href="../khach-san/index.html" class="menu-image-title-after nav-top-link"><span
-											class="menu-image-title">Khách sạn</span></a></li>
-								<li id="menu-item-1116"
-									class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-1116">
-									<a href="../../category/tin-tuc/index.html"
-										class="menu-image-title-after nav-top-link"><span class="menu-image-title">Tin
-											tức</span></a></li>
-								<li id="menu-item-1115"
-									class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
-										href="../../lien-he/index.html"
-										class="menu-image-title-after nav-top-link"><span class="menu-image-title">Liên
-											hệ</span></a></li>
-							</ul>
-						</div>
-						<!-- Mobile Right Elements -->
-						<div class="flex-col show-for-medium flex-right">
-							<ul class="mobile-nav nav nav-right ">
-								<li class="cart-item has-icon">
-									<a href="../../gio-hang/index.html"
-										class="header-cart-link off-canvas-toggle nav-top-link is-small"
-										data-open="#cart-popup" data-class="off-canvas-cart" title="Giỏ hàng"
-										data-pos="right">
-										<i class="icon-shopping-cart" data-icon-label="0">
-										</i>
-									</a>
-									<!-- Cart Sidebar Popup -->
-									<div id="cart-popup" class="mfp-hide widget_shopping_cart">
-										<div class="cart-popup-inner inner-padding">
-											<div class="cart-popup-title text-center">
-												<h4 class="uppercase">Giỏ hàng</h4>
-												<div class="is-divider"></div>
-											</div>
-											<div class="widget_shopping_cart_content">
-												<p class="woocommerce-mini-cart__empty-message">Chưa có sản phẩm trong
-													giỏ hàng.</p>
-											</div>
-											<div class="cart-sidebar-content relative"></div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- .header-inner -->
-				</div>
-				<!-- .header-main -->
-				<div class="header-bg-container fill">
-					<div class="header-bg-image fill"></div>
-					<div class="header-bg-color fill"></div>
-				</div>
-				<!-- .header-bg-container -->
-			</div>
+		<header  th:replace="layoutsClient::header"  id="header" class="header transparent has-transparent nav-dark toggle-nav-dark has-sticky sticky-jump">
+ 
 			<!-- header-wrapper-->
 		</header>
 		<div class="shop-page-title category-page-title page-title featured-title dark ">
@@ -253,7 +70,7 @@
 									<a
 										href="../../san-pham/du-lich-phu-quoc-nam-dao-3-ngay-2-dem-dip-noel-tet-duong-lich-2018-2/index.html">
 										<img width="300" height="300"
-											src="../../content/uploads/2018/12/offers_slide_2-300x300.jpg"
+											th:src="@{/content/uploads/2018/12/offers_slide_2-300x300.jpg}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 											alt=""
 											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-100x100.jpg 100w"
@@ -266,7 +83,7 @@
 								<li>
 									<a href="../../san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong-2/index.html">
 										<img width="300" height="300"
-											src="../../content/uploads/2018/12/offers_slide_1-300x300.jpg"
+											th:src="@{/content/uploads/2018/12/offers_slide_1-300x300.jpg}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 											alt=""
 											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-100x100.jpg 100w"
@@ -279,7 +96,7 @@
 								<li>
 									<a href="../../san-pham/du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon-2/index.html">
 										<img width="300" height="300"
-											src="../../content/uploads/2018/12/sea_tour_img_1-300x300.jpg"
+											th:src="@{/content/uploads/2018/12/sea_tour_img_1-300x300.jpg}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 											alt=""
 											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-100x100.jpg 100w"
@@ -293,7 +110,7 @@
 									<a
 										href="../../san-pham/du-lich-da-lat-2018-gia-tot-khoi-hanh-tu-sai-gon/index.html">
 										<img width="300" height="300"
-											src="../../content/uploads/2018/12/Sapa-300x300.jpg"
+											th:src="@{/content/uploads/2018/12/Sapa-300x300.jpg}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 											alt=""
 											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-100x100.jpg 100w"
@@ -307,7 +124,7 @@
 									<a
 										href="../../san-pham/du-lich-hoi-an-quang-nam-khoi-hanh-tu-tp-hcm-gia-tot/index.html">
 										<img width="300" height="300"
-											src="../../content/uploads/2018/12/Phoco_hoian-300x300.jpg"
+											th:src="@{/content/uploads/2018/12/Phoco_hoian-300x300.jpg}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 											alt=""
 											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-100x100.jpg 100w"
@@ -338,7 +155,7 @@
 													<a
 														href="../../san-pham/du-lich-anh-scotland-8-ngay-7-dem-khoi-hanh-tu-tp-hcm-gia-tot/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/hoian-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/hoian-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-100x100.jpg 100w"
@@ -388,7 +205,7 @@
 													<a
 														href="../../san-pham/du-lich-hoi-an-quang-nam-khoi-hanh-tu-tp-hcm-gia-tot/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/Phoco_hoian-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/Phoco_hoian-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-100x100.jpg 100w"
@@ -438,7 +255,7 @@
 													<a
 														href="../../san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-300x300.png"
+															th:src="@{/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-300x300.png}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-300x300.png 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-100x100.png 100w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-150x150.png 150w"
@@ -487,7 +304,7 @@
 													<a
 														href="../../san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong-2/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/offers_slide_1-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/offers_slide_1-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-100x100.jpg 100w"
@@ -536,7 +353,7 @@
 													<a
 														href="../../san-pham/du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/offers_slide_2-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/offers_slide_2-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-100x100.jpg 100w"
@@ -585,7 +402,7 @@
 													<a
 														href="../../san-pham/du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon-2/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/sea_tour_img_1-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/sea_tour_img_1-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-100x100.jpg 100w"
@@ -634,7 +451,7 @@
 													<a
 														href="../../san-pham/du-lich-han-quoc-2018-gia-tot-khoi-hanh-tu-sai-gon-bay-vietjet-air/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/dalat-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/dalat-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/dalat-100x100.jpg 100w"
@@ -683,7 +500,7 @@
 													<a
 														href="../../san-pham/du-lich-da-lat-2018-gia-tot-khoi-hanh-tu-sai-gon/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/Sapa-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/Sapa-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-100x100.jpg 100w"
@@ -732,7 +549,7 @@
 													<a
 														href="../../san-pham/du-lich-bo-tay-hoa-ky-7-ngay-los-angeles-las-vegas-gia-tot-2018/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/BaNa-1-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/BaNa-1-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/BaNa-1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/BaNa-1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/BaNa-1-100x100.jpg 100w"
@@ -781,7 +598,7 @@
 													<a
 														href="../../san-pham/du-lich-canada-10-ngay-mua-thu-2017-gia-tot-khoi-hanh-tu-sai-gon/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/hoian-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/hoian-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/hoian-100x100.jpg 100w"
@@ -830,7 +647,7 @@
 													<a
 														href="../../san-pham/du-lich-hue-2018-gia-tot-khoi-hanh-tu-sai-gon/index.html">
 														<img width="300" height="300"
-															src="../../content/uploads/2018/12/Hue-300x300.jpg"
+															th:src="@{/content/uploads/2018/12/Hue-300x300.jpg}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
 															srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Hue-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Hue-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Hue-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Hue-100x100.jpg 100w"
@@ -944,7 +761,7 @@
 				</div>
 				<!-- .section-bg -->
 				<div class="section-content relative">
-					<div class="gap-element" style="display:block; height:auto; padding-top:60px" class="clearfix">
+					<div class="gap-element clearfix" style="display:block; height:auto; padding-top:60px"  >
 					</div>
 					<div class="row row-large row_footer_2_menu" id="row-370956974">
 						<div class="col medium-3 small-12 large-3">
@@ -1178,8 +995,8 @@
 										</div>
 									</div>
 								</ul>
-								<div class="gap-element" style="display:block; height:auto; padding-top:20px"
-									class="clearfix"></div>
+								<div class="gap-element clearfix" style="display:block; height:auto; padding-top:20px"
+									 ></div>
 							</div>
 						</div>
 						<div class="col medium-3 small-12 large-3">
@@ -1732,58 +1549,58 @@
          /* ]]> */
 	</script>
 	<script type='text/javascript'
-		src="../../content/plugins/contact-form-7/includes/js/scripts5597.js?ver=5.0"></script>
+		th:src="@{/content/plugins/contact-form-7/includes/js/scripts5597.js?ver=5.0}"></script>
 	<script type='text/javascript'
-		src="../../content/plugins/ot-flatsome-vertical-menu/assets/js/ot-vertical-menuf488.js?ver=1.1.0"></script>
+		th:src="@{/content/plugins/ot-flatsome-vertical-menu/assets/js/ot-vertical-menuf488.js?ver=1.1.0}"></script>
 	<script type='text/javascript'>
 		/* <![CDATA[ */
 		var wc_add_to_cart_params = { "ajax_url": "\/lets-travel\/wp-admin\/admin-ajax.php", "wc_ajax_url": "http:\/\/mauweb.monamedia.net\/lets-travel\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "Xem gi\u1ecf h\u00e0ng", "cart_url": "http:\/\/mauweb.monamedia.net\/lets-travel\/gio-hang\/", "is_cart": "", "cart_redirect_after_add": "no" };
          /* ]]> */
 	</script>
 	<script type='text/javascript'
-		src="../../content/plugins/woocommerce/assets/js/frontend/add-to-cart.min6765.js?ver=3.3.3"></script>
+		th:src="@{/content/plugins/woocommerce/assets/js/frontend/add-to-cart.min6765.js?ver=3.3.3}"></script>
 	<script type='text/javascript'
-		src="../../content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70"></script>
+		th:src="@{/content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70}"></script>
 	<script type='text/javascript'
-		src="../../content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min6b25.js?ver=2.1.4"></script>
+		th:src="@{/content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min6b25.js?ver=2.1.4}"></script>
 	<script type='text/javascript'>
 		/* <![CDATA[ */
 		var woocommerce_params = { "ajax_url": "\/lets-travel\/wp-admin\/admin-ajax.php", "wc_ajax_url": "http:\/\/mauweb.monamedia.net\/lets-travel\/?wc-ajax=%%endpoint%%" };
          /* ]]> */
 	</script>
 	<script type='text/javascript'
-		src="../../content/plugins/woocommerce/assets/js/frontend/woocommerce.min6765.js?ver=3.3.3"></script>
+		th:src="@{/content/plugins/woocommerce/assets/js/frontend/woocommerce.min6765.js?ver=3.3.3}"></script>
 	<script type='text/javascript'>
 		/* <![CDATA[ */
 		var wc_cart_fragments_params = { "ajax_url": "\/lets-travel\/wp-admin\/admin-ajax.php", "wc_ajax_url": "http:\/\/mauweb.monamedia.net\/lets-travel\/?wc-ajax=%%endpoint%%", "cart_hash_key": "wc_cart_hash_f4d5757d884664fe7f6d3345b73bab2a", "fragment_name": "wc_fragments_f4d5757d884664fe7f6d3345b73bab2a" };
          /* ]]> */
 	</script>
 	<script type='text/javascript'
-		src="../../content/plugins/woocommerce/assets/js/frontend/cart-fragments.min6765.js?ver=3.3.3"></script>
+		th:src="@{/content/plugins/woocommerce/assets/js/frontend/cart-fragments.min6765.js?ver=3.3.3}"></script>
 	<script type='text/javascript'
-		src="../../content/themes/flatsome/inc/extensions/flatsome-live-search/flatsome-live-search3b71.js?ver=3.5.0"></script>
+		th:src="@{/content/themes/flatsome/inc/extensions/flatsome-live-search/flatsome-live-search3b71.js?ver=3.5.0}"></script>
 	<script type='text/javascript'>
 		/* <![CDATA[ */
 		var wpf = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "url": "http:\/\/mauweb.monamedia.net\/lets-travel\/content\/plugins\/themify-wc-product-filter\/public\/", "ver": "1.1.5", "rtl": "" };
          /* ]]> */
 	</script>
 	<script type='text/javascript'
-		src="../../content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5"></script>
-	<script type='text/javascript' src="../../includes/js/hoverIntent.minc245.js?ver=1.8.1"></script>
+		th:src="@{/content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5}"></script>
+	<script type='text/javascript' th:src="@{/includes/js/hoverIntent.minc245.js?ver=1.8.1}"></script>
 	<script type='text/javascript'>
 		/* <![CDATA[ */
 		var flatsomeVars = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "rtl": "", "sticky_height": "70" };
          /* ]]> */
 	</script>
-	<script type='text/javascript' src="../../content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0"></script>
-	<script type='text/javascript' src="../../content/themes/flatsome/assets/js/woocommerce3b71.js?ver=3.5.0"></script>
-	<script type='text/javascript' src="../../includes/js/wp-embed.minca80.js?ver=4.9.15"></script>
+	<script type='text/javascript' th:src="@{/content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0}"></script>
+	<script type='text/javascript' th:src="@{/content/themes/flatsome/assets/js/woocommerce3b71.js?ver=3.5.0}"></script>
+	<script type='text/javascript' th:src="@{/includes/js/wp-embed.minca80.js?ver=4.9.15}"></script>
 	<script type='text/javascript'
-		src="../../content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.8.min1f22.js?ver=1.6.2"></script>
+		th:src="@{/content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.8.min1f22.js?ver=1.6.2}"></script>
 	<script type='text/javascript'
-		src="../../content/plugins/easy-fancybox/js/jquery.easing.min2fca.js?ver=1.4.0"></script>
+		th:src="@{/content/plugins/easy-fancybox/js/jquery.easing.min2fca.js?ver=1.4.0}"></script>
 	<script type='text/javascript'
-		src="../../content/plugins/easy-fancybox/js/jquery.mousewheel.mina9d5.js?ver=3.1.13"></script>
+		th:src="@{/content/plugins/easy-fancybox/js/jquery.mousewheel.mina9d5.js?ver=3.1.13}"></script>
 </body>
 
 </html>
