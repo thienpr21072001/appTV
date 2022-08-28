@@ -37,6 +37,7 @@ public class TourController {
 			@PathVariable("page") int page, @RequestParam("provinceId") Long provinceId) {
 		searchForm.setPage(page);
 		searchForm.setProvinceId(provinceId);
+		searchForm.setPageSize(9);
 		Page<Product> pageProduct = productService.getAll(searchForm);
 		model.addAttribute("searchForm", searchForm);
 		model.addAttribute("pageProduct",pageProduct);
