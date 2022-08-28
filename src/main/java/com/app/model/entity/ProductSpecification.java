@@ -14,9 +14,11 @@ import com.app.entity.Product;
 
 public class ProductSpecification implements Specification<Product>{
 	private final String searchKey;
+	private final Long provinceId;
 
-	public ProductSpecification(String searchKey ) {
+	public ProductSpecification(String searchKey, Long provinceId ) {
 		this.searchKey = searchKey;
+		this.provinceId = provinceId;
 	}
 
 	@Override
@@ -27,6 +29,10 @@ public class ProductSpecification implements Specification<Product>{
 			String key = "%"+searchKey.trim()+"%";
 			Predicate prediName = criteriaBuilder.like(root.get("name"), key);
 			predicates.add(prediName);
+		}
+		if(provinceId != null) {
+			Predicate preProvinceId = criteriaBuilder.equal(root.get("provinceId"), provinceId);
+			predicates.add(preProvinceId);
 		}
 		 
 		Predicate predicateStatus = criteriaBuilder.equal(root.get("status"), 1);

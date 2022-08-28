@@ -116,7 +116,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Page<Product> getAll(PagingSearchFilterProduct psfp) {
 		// TODO Auto-generated method stub
-		return productRepo.findAll(new ProductSpecification(psfp.getKeyword()), PageRequest.of(psfp.getPage(), psfp.getPageSize()));
+		return productRepo.findAll(new ProductSpecification(psfp.getKeyword(), psfp.getProvinceId()), PageRequest.of(psfp.getPage(), psfp.getPageSize()));
 	}
 	 
 	

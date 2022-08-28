@@ -3,7 +3,7 @@ package com.app.model;
 public class PagingSearchFilterProduct{
 	private String keyword ;
 	private long cateId ;
-	private long provinceId;
+	private Long provinceId;
 	 
 	private int pageSize = 5;
 	private int page  ;
@@ -52,11 +52,11 @@ public class PagingSearchFilterProduct{
 		this.page = page;
 	}
 
-	public long getProvinceId() {
+	public Long getProvinceId() {
 		return provinceId;
 	}
 
-	public void setProvinceId(long provinceId) {
+	public void setProvinceId(Long provinceId) {
 		this.provinceId = provinceId;
 	}
  
