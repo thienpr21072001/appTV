@@ -2,6 +2,7 @@ package com.app.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,18 +18,22 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.app.entity.Product;
 import com.app.entity.User;
 import com.app.model.LoginRequest;
+import com.app.repository.ProductRepository;
 import com.app.service.UserService;
-import com.app.utils.AuthUtils;
 import com.app.utils.Constant;
 import com.app.validator.LoginValidator;
-
+ 
 @Controller
 public class HomeController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ProductRepository productRepo;
 	
 	@Autowired
 	LoginValidator loginValidator;
@@ -73,5 +78,15 @@ public class HomeController {
 		session.removeAttribute(Constant.USER_INFO);
 		return "redirect:/login";
 	}
+	
+	//client
+	
+	@GetMapping(value = {"/trang-chu"})
+	public String trangChu(HttpSession session, ModelMap map) {
+		List<Product> productList = productRepo.findNew6Product();
+		map.addAttribute("products", productList);
+		return "client/index";
+	}
+	
   
 }
