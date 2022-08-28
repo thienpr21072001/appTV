@@ -63,77 +63,23 @@
 				<div class="col large-3 hide-for-medium ">
 					<div id="shop-sidebar" class="sidebar-inner col-inner">
 						<aside id="woocommerce_products-3" class="widget woocommerce widget_products">
-							<span class="widget-title shop-sidebar">Những tour khác</span>
+							<span class="widget-title shop-sidebar">Những tour mới nhất 2022</span>
 							<div class="is-divider small"></div>
 							<ul class="product_list_widget">
-								<li>
+								<li th:each="item : ${products}">
 									<a
-										href="../../san-pham/du-lich-phu-quoc-nam-dao-3-ngay-2-dem-dip-noel-tet-duong-lich-2018-2/index.html">
+										th:href="@{/href}">
 										<img width="300" height="300"
-											th:src="@{/content/uploads/2018/12/offers_slide_2-300x300.jpg}"
+											th:src="@{ ${item.images}}"
 											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 											alt=""
-											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_2-100x100.jpg 100w"
-											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title">Du
-											Lịch Phú Quốc - Nam Đảo 3 ngày 2 đêm dịp Noel & Tết Dương Lịch 2018</span>
+											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title" th:text="${item.name}"> </span>
 									</a>
-									<span class="woocommerce-Price-amount amount">4,999,000&nbsp;<span
+									<span class="woocommerce-Price-amount amount" th:text="${item.price}"><span
 											class="woocommerce-Price-currencySymbol">&#8363;</span></span>
 								</li>
-								<li>
-									<a href="../../san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong-2/index.html">
-										<img width="300" height="300"
-											th:src="@{/content/uploads/2018/12/offers_slide_1-300x300.jpg}"
-											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
-											alt=""
-											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/offers_slide_1-100x100.jpg 100w"
-											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title">Beach
-											Resort Phan Thiết Khuyến Mãi Mùa Đông</span>
-									</a>
-									<span class="woocommerce-Price-amount amount">2,999,000&nbsp;<span
-											class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-								</li>
-								<li>
-									<a href="../../san-pham/du-lich-con-dao-2-ngay-1-dem-bay-tu-sai-gon-2/index.html">
-										<img width="300" height="300"
-											th:src="@{/content/uploads/2018/12/sea_tour_img_1-300x300.jpg}"
-											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
-											alt=""
-											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/sea_tour_img_1-100x100.jpg 100w"
-											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title">Du
-											Lịch Côn Đảo 2 ngày 1 đêm bay từ Sài Gòn</span>
-									</a>
-									<span class="woocommerce-Price-amount amount">5,299,000&nbsp;<span
-											class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-								</li>
-								<li>
-									<a
-										href="../../san-pham/du-lich-da-lat-2018-gia-tot-khoi-hanh-tu-sai-gon/index.html">
-										<img width="300" height="300"
-											th:src="@{/content/uploads/2018/12/Sapa-300x300.jpg}"
-											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
-											alt=""
-											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-24x24.jpg 24w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Sapa-100x100.jpg 100w"
-											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title">Du
-											Lịch Đà Lạt 2018 giá tốt khởi hành từ Sài Gòn</span>
-									</a>
-									<span class="woocommerce-Price-amount amount">14,999,000&nbsp;<span
-											class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-								</li>
-								<li>
-									<a
-										href="../../san-pham/du-lich-hoi-an-quang-nam-khoi-hanh-tu-tp-hcm-gia-tot/index.html">
-										<img width="300" height="300"
-											th:src="@{/content/uploads/2018/12/Phoco_hoian-300x300.jpg}"
-											class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
-											alt=""
-											srcset="//mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-300x300.jpg 300w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-150x150.jpg 150w, //mauweb.monamedia.net/lets-travel/content/uploads/2018/12/Phoco_hoian-100x100.jpg 100w"
-											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title">Du
-											lịch Hội An - Quảng Nam khởi hành từ TP.HCM giá tốt</span>
-									</a>
-									<span class="woocommerce-Price-amount amount">59,900,000&nbsp;<span
-											class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-								</li>
+ 
+ 
 							</ul>
 						</aside>
 					</div>
