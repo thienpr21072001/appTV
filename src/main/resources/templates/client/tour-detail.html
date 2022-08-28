@@ -22,7 +22,7 @@
             <div class="page-title-inner flex-row  medium-flex-wrap container">
                <div class="flex-col flex-grow medium-text-center">
                   <div class="is-small">
-                     <nav class="woocommerce-breadcrumb breadcrumbs"><a href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span class="divider">&#47;</span> <a href="../../danh-muc/tour-du-lich/index.html">Tour du lịch</a> <span class="divider">&#47;</span> <a href="../../danh-muc/tour-du-lich/mien-nam/index.html">Miền nam</a> <span class="divider">&#47;</span> <a href="../../danh-muc/tour-du-lich/mien-nam/phan-thiet/index.html">Phan Thiết</a></nav>
+                     <nav class="woocommerce-breadcrumb breadcrumbs"><a href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span class="divider">&#47;</span> <a href="javascript:void(0)">Tour du lịch</a> <span class="divider">&#47;</span>  <a th:href="@{'/tour/list/1?provinceId=' + ${product.provinceId}}" th:text="${product.provinceText}"></a></nav>
                   </div>
                </div>
                <!-- .flex-left -->
@@ -60,7 +60,9 @@
                                        "dragThreshold" : 15,
                                        "pageDots": false,
                                        "rightToLeft": false       }'>
-                                       <div data-thumb="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-100x100.png" class="first slide woocommerce-product-gallery__image"><a href="../../content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png"><img width="600" height="450" src="../../content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-600x450.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0" data-caption="" data-src="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png" data-large_image="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png" data-large_image_width="720" data-large_image_height="540" srcset="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-600x450.png 600w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-300x225.png 300w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-24x18.png 24w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-36x27.png 36w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-48x36.png 48w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png 720w" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
+                                       <div data-thumb="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-100x100.png" class="first slide woocommerce-product-gallery__image">
+                                       <a href="javascript:void(0)">
+                                       <img width="600" height="450" th:src="@{ ${product.images}}" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
                                     </figure>
                                     <div class="image-tools absolute bottom left z-3">
                                        <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
@@ -268,7 +270,7 @@
                               <!-- .tabbed-content -->
                               <div class="related related-products-wrapper product-section">
                                  <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">
-                                    Sản phẩm tương tự    
+                                    Tour tương tự   
                                  </h3>
                                  <div class="row large-columns-4 medium-columns- small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push"  data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
                                     <div class="product-small col has-hover post-84 product type-product status-publish has-post-thumbnail product_cat-con-dao product_cat-mien-nam product_cat-tour-du-lich pa_noi-khoi-hanh-tp-ho-chi-minh pa_so-ngay-78  instock shipping-taxable purchasable product-type-simple">

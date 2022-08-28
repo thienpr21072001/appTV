@@ -4,15 +4,14 @@
    <head th:replace="layoutsClient::head">
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      <title>Beach Resort Phan Thiết Khuyến Mãi Mùa Đông &#8211; Let&#8217;s Travel</title>
+      <title> Chi tiết</title>
  
    </head>
    <body class="product-template-default single single-product postid-192 woocommerce woocommerce-page lightbox nav-dropdown-has-arrow">
       <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
       <div id="wrapper">
          <header style="margin-bottom: 50px;"   th:replace="layoutsClient::header" id="header" class="header transparent has-transparent nav-dark toggle-nav-dark has-sticky sticky-jump">
- 
-            <!-- header-wrapper-->
+  
          </header>
          <div style="margin-bottom: 50px;"></div>
          <div class="shop-page-title product-page-title dark  page-title featured-title ">
@@ -23,7 +22,7 @@
             <div class="page-title-inner flex-row  medium-flex-wrap container">
                <div class="flex-col flex-grow medium-text-center">
                   <div class="is-small">
-                     <nav class="woocommerce-breadcrumb breadcrumbs"><a href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span class="divider">&#47;</span> <a href="../../danh-muc/tour-du-lich/index.html">Tour du lịch</a> <span class="divider">&#47;</span> <a href="../../danh-muc/tour-du-lich/mien-nam/index.html">Miền nam</a> <span class="divider">&#47;</span> <a href="../../danh-muc/tour-du-lich/mien-nam/phan-thiet/index.html">Phan Thiết</a></nav>
+                     <nav class="woocommerce-breadcrumb breadcrumbs"><a href="https://mauweb.monamedia.net/lets-travel">Trang chủ</a> <span class="divider">&#47;</span> <a href="javascript:void(0)">Tour du lịch</a> <span class="divider">&#47;</span>  <a th:href="@{'/tour/list/1?provinceId=' + ${product.provinceId}}">Phan Thiết</a></nav>
                   </div>
                </div>
                <!-- .flex-left -->
@@ -61,7 +60,9 @@
                                        "dragThreshold" : 15,
                                        "pageDots": false,
                                        "rightToLeft": false       }'>
-                                       <div data-thumb="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-100x100.png" class="first slide woocommerce-product-gallery__image"><a href="../../content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png"><img width="600" height="450" src="../../content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-600x450.png" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0" data-caption="" data-src="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png" data-large_image="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png" data-large_image_width="720" data-large_image_height="540" srcset="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-600x450.png 600w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-300x225.png 300w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-24x18.png 24w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-36x27.png 36w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-48x36.png 48w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png 720w" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
+                                       <div data-thumb="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-100x100.png" class="first slide woocommerce-product-gallery__image">
+                                       <a href="javascript:void(0)">
+                                       <img width="600" height="450" th:src="@{ ${product.images}}" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
                                     </figure>
                                     <div class="image-tools absolute bottom left z-3">
                                        <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
@@ -70,17 +71,17 @@
                                  </div>
                               </div>
                               <div class="product-info summary col-fit col entry-summary product-summary">
-                                 <h1 class="product-title entry-title">
-                                    Beach Resort Phan Thiết Khuyến Mãi Mùa Đông
+                                 <h1 class="product-title entry-title" th:text=${product.name}>
+                                     
                                  </h1>
                                  <div class="is-divider small"></div>
                                  <div class="price-wrapper">
                                     <p class="price product-page-price ">
-                                       <span class="woocommerce-Price-amount amount">2,999,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                       <span class="woocommerce-Price-amount amount" th:text="${product.price}"><span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
                                     </p>
                                  </div>
                                  <div class="product-short-description">
-                                    <p><strong>Đặt phòng khách sạn Victoria Phan Thiet Beach Resort</strong> &#8211; Victoria Phan Thiết Beach Resort &amp; Spa gồm 57 bungalows được thiết kế theo phong cách những ngôi nhà mái tranh mộc mạc ở miền quê ẩn mình trong khu vườn nhiệt đới quyến rũ.</p>
+                                    <p th:text="${product.description}"> </p>
                                  </div>
                                  <form class="cart" action="https://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/" method="post" enctype='multipart/form-data'>
                                     <div class="quantity buttons_added">
@@ -246,61 +247,23 @@
                                     <li class="additional_information_tab  ">
                                        <a href="#tab-additional_information">Thông tin bổ sung</a>
                                     </li>
-                                    <li class="reviews_tab  ">
-                                       <a href="#tab-reviews">Đánh giá (0)</a>
-                                    </li>
+ 
                                  </ul>
                                  <div class="tab-panels">
                                     <div class="panel entry-content active" id="tab-description">
-                                       <p><strong>Đặt phòng khách sạn Victoria Phan Thiet Beach Resort</strong> &#8211; Victoria Phan Thiết Beach Resort &amp; Spa gồm 57 bungalows được thiết kế theo phong cách những ngôi nhà mái tranh mộc mạc ở miền quê ẩn mình trong khu vườn nhiệt đới quyến rũ.</p>
+                                       <p th:text="${product.name}"></p>
                                     </div>
                                     <div class="panel entry-content " id="tab-additional_information">
                                        <table class="shop_attributes">
                                           <tr>
-                                             <th>Loại giường</th>
+                                             <th>Nơi khởi hành</th>
                                              <td>
-                                                <p><a href="../../loai-giuong/giuong-don/index.html" rel="tag">Giường đơn</a></p>
+                                                <p><a href="javascript:void(0)" th:text="${product.provinceText}" rel="tag"> </a></p>
                                              </td>
                                           </tr>
                                        </table>
                                     </div>
-                                    <div class="panel entry-content " id="tab-reviews">
-                                       <div class="row" id="reviews">
-                                          <div class="col large-12" id="comments">
-                                             <h3 class="normal">Đánh giá</h3>
-                                             <p class="woocommerce-noreviews">Chưa có đánh giá nào.</p>
-                                          </div>
-                                          <div id="review_form_wrapper" class="large-12 col">
-                                             <div id="review_form" class="col-inner">
-                                                <div class="review-form-inner has-border">
-                                                   <div id="respond" class="comment-respond">
-                                                      <h3 id="reply-title" class="comment-reply-title">Hãy là người đầu tiên nhận xét &ldquo;Beach Resort Phan Thiết Khuyến Mãi Mùa Đông&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Hủy</a></small></h3>
-                                                      <form action="https://mauweb.monamedia.net/lets-travel/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
-                                                         <div class="comment-form-rating">
-                                                            <label for="rating">Đánh giá của bạn</label>
-                                                            <select name="rating" id="rating" aria-required="true" required>
-                                                               <option value="">Xếp hạng&hellip;</option>
-                                                               <option value="5">Rất tốt</option>
-                                                               <option value="4">Tốt</option>
-                                                               <option value="3">Trung bình</option>
-                                                               <option value="2">Không tệ</option>
-                                                               <option value="1">Rất tệ</option>
-                                                            </select>
-                                                         </div>
-                                                         <p class="comment-form-comment"><label for="comment">Nhận xét của bạn <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></p>
-                                                         <p class="comment-form-author"><label for="author">Tên <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required /></p>
-                                                         <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required="true" required /></p>
-                                                         <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Gửi đi" /> <input type='hidden' name='comment_post_ID' value='192' id='comment_post_ID' />
-                                                            <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-                                                         </p>
-                                                      </form>
-                                                   </div>
-                                                   <!-- #respond -->
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
+ 
                                  </div>
                                  <!-- .tab-panels -->
                               </div>
