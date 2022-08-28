@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+  <head th:replace="layouts::head">
+   
+  </head>
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a th:href='@{/index}' class="site_title"><i class="fa fa-paw"></i> <span> Management </span></a>
+            </div>
+            <div class="clearfix"></div>
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img th:src="@{/resources/images/img.jpg}" alt="..." class="img-circle profile_img">
+              </div>
+             <div th:replace="layouts::profile" class="profile_info">
+ 
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+            <br />
+            <!-- sidebar menu -->
+
+			<div th:replace="layouts::sidebar" >
+ 
+			</div>		
+ 
+            <!-- /sidebar menu -->
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/login">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+        <!-- top navigation -->
+		<div  th:replace="layouts::top_nav"  >
+ 
+          </div>
+        <!-- /top navigation -->
+        
+        <!-- page content -->
+	<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3 th:text="${title}"></h3>
+						</div>
+					</div>
+		<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_content">
+									<br />
+									<form th:action="@{/products/save}" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" th:object="${submitForm}">
+										<input type="hidden" th:field="*{id}" class="form-control" >
+										<input type="hidden" th:field="*{status}" class="form-control" >
+					  					<input type="hidden" th:field="*{createDate}" class="form-control" >
+					  					<input type="hidden" th:field="*{updateDate}" class="form-control" > 
+					  					<input type="hidden" th:field="*{images}" class="form-control" >
+					  					<input type="hidden" th:field="*{provinceText}" class="form-control" >
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Tên tour <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">												
+											<input th:field="*{name}" name="name" class="form-control" placeholder="Nhập tên ..." th:readonly="${viewOnly == true}"/>
+												<div class="has-error">
+													 <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" ></span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Giá tiền<span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input th:field="*{price}" name="price" class="form-control" placeholder="Nhập giá..." type="number" th:readonly="${viewOnly == true}" />														
+												<div class="has-error">
+													<span style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}" ></span>
+												</div>
+											</div>
+										</div>
+								  
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Mô tả<span class="required"></span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<textarea  th:field="*{description}" rows="8" cols="8" class="form-control" th:readonly="${viewOnly == true}" ></textarea>
+											</div>
+										</div>
+										<th:block th:if="${viewOnly != true}">
+											<div class="item form-group">
+												<label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Avartar<span class="required"></span>
+												</label>
+												<div class="col-md-6 col-sm-6 ">
+													<input type="file" th:field="*{multipartFile}" class="form-control"  >
+												</div>
+											</div>
+										</th:block>	
+										
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Nơi khỏi hành<span class="required"></span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<select th:field="*{provinceId}" class="form-control" th:readonly="${viewOnly == true}">
+											    	 <option th:each="item : ${T(com.app.utils.ProvinceUtil).values()}"  th:value="${item.value}" th:text="${item.text}"></option>
+											    </select>
+											</div>
+										</div>
+										 	
+										<div class="ln_solid"></div>
+											<div class="item form-group">
+												<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+												<!-- <c:if test="${!viewOnly}"> -->
+												<th:block th:if="${viewOnly != true}">
+													<button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok-circle"></i> Submit</button>
+													<button class="btn btn-primary" type="reset"><i class="glyphicon glyphicon-refresh"></i> Reset</button>	
+												</th:block>		
+												<a href='/products/list/1'><button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-minus-sign"></i> Cancel</button></a>																					
+												</div>
+											</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#tourList').addClass('current-page').siblings().removeClass("current-page");
+			$("#tourList").parents("li").addClass("active").siblings().removeClass("active");
+			$("#tourList").parents().show();			
+		});	
+	</script>
+        <!-- /page content -->
+        
+        
+        <!-- footer content -->
+        
+		<footer th:replace="layouts::footer"   >
+        
+        </footer>
+        
+        <!-- /footer content -->
+      </div>
+    </div>
+     
+    <script th:src="@{/resources/vendors/jqvmap/dist/jquery.vmap.js}"></script>
+    <script th:src="@{/resources/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+    <script th:src="@{/resources/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+	<script th:src="@{/resources/vendors/Chart.js/dist/Chart.min.js}"></script>
+    <script th:src="@{/resources/vendors/pnotify/dist/pnotify.js}"></script>
+    <script th:src="@{/resources/vendors/pnotify/dist/pnotify.buttons.js}"></script>
+    <script th:src="@{/resources/vendors/pnotify/dist/pnotify.nonblock.js}"></script>
+    <script th:src="@{/resources/vendors/jquery/dist/jquery.min.js}"></script>
+    <script th:src="@{/resources/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+    <script th:src="@{/resources/vendors/fastclick/lib/fastclick.js}"></script>
+    <script th:src="@{/resources/vendors/nprogress/nprogress.js}"></script>
+    <script th:src="@{/resources/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+ 	<script th:srr="@{/resources/vendors/moment/min/moment.min.js}"></script>
+    <script th:src="@{/resources/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js}"></script>
+    <script th:src="@{/resources/build/js/custom.min.js}"></script>
+  </body>
+</html>

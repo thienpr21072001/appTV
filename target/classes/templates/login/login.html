@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Login </title>
+ 
+    <link  th:href="@{/resources/vendors/bootstrap/dist/css/bootstrap.min.css}"  rel="stylesheet">
+    <!-- Font Awesome -->
+    <link th:href="@{/resources/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- NProgress -->
+    <link th:href="@{/resources/vendors/nprogress/nprogress.css}" rel="stylesheet">
+    <!-- Animate.css -->
+    <link th:href="@{/resources/vendors/animate.css/animate.min.css}" rel="stylesheet">
+    <link th:href="@{/resources/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
+    <link th:href="@{/resources/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css}" rel="stylesheet">
+    <!-- Custom Theme Style -->
+   <link th:href="@{/resources/build/css/custom.min.css}" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+          
+            <form th:action="@{/processLogin}" method="POST" th:object="${submitForm}" >
+              <h1>Đăng Nhập</h1>
+              <div>         
+                
+                <input th:field="*{username}" class="form-control" placeholder="Username" name="username"/>
+                <div class="has-error">
+         		 	<span style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" ></span>
+         		</div>	
+              </div>
+              <br>
+              <div>               
+                <input th:field="*{password}" type="password" class="form-control" placeholder="Password" name="password"/>
+         		<div class="has-error">
+         			 <span style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>     		
+         		</div>	
+              </div>
+              <br>
+              <div>
+                <button class="btn btn-primary" type="submit">Đăng nhập</button>
+              </div>
+
+              <div class="clearfix"></div>
+            </form>
+          </section>
+        </div>
+
+ 
+      </div>
+    </div>
+  </body>
+</html>
