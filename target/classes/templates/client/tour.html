@@ -100,12 +100,12 @@
 											<div class="box-image">
 												<div class="image-fade_in_back">
 													<a
-														href="../../san-pham/du-lich-anh-scotland-8-ngay-7-dem-khoi-hanh-tu-tp-hcm-gia-tot/index.html">
-														<img width="300" height="300"
+														th:href="@{/href}">
+														<img width="300"  style="height: 300px!important;"
 															th:src="@{${item.images}}"
 															class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image"
 															alt=""
-															sizes="(max-width: 300px) 100vw, 300px" /> </a>
+															  /> </a>
 												</div>
 												<div class="image-tools is-small top right show-on-hover">
 												</div>
@@ -130,7 +130,7 @@
 												</div>
 												<div class="price-wrapper">
 													<span class="price"><span
-															class="woocommerce-Price-amount amount" th:text="${item.name}"> <span
+															class="woocommerce-Price-amount amount" th:text="${item.price}"> <span
 																class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
 												</div>
 											</div>

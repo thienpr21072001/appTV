@@ -14,8 +14,8 @@ public enum ProvinceUtil {
 	QUANG_NAM(8, "Quảng nam", 2),
 	DA_LAT(9, "Đà lạt", 3),
 	CON_DAO(10, "Côn đảo", 3),
-	PHAN_THIET(11, "Phan thiết", 3);
-	
+	PHAN_THIET(11, "Phan thiết", 3),
+	PHU_TQUOC(12, "Phú quốc", 3);
 	private int value;
 	private String text;
 	private int area;
