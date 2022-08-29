@@ -88,5 +88,9 @@ public class HomeController {
 		return "client/index";
 	}
 	
-  
+	@GetMapping(value = {"/gioi-thieu"})
+	public String gioiThieu(HttpSession session, ModelMap map) {
+		 
+		return "client/introduce";
+	}
 }
