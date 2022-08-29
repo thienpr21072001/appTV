@@ -100,30 +100,7 @@ public class OrderController {
 		
 		return "client/thanh-toan";
 	}
-	
-	@GetMapping("/edit/{id}")
-	public String edit(Model map,@PathVariable("id")long id) {
-		Orders orders = orderService.getById(id);
-		if(orders == null) {
-			throw new ResourceNotFoundException("orders not found with id :" + id);
-		}
-		map.addAttribute("submitForm", orders);
-		map.addAttribute("viewOnly", false);
-		map.addAttribute("title", "Edit");
-		return "orders/orders-action";
-	}
-	
-	@GetMapping("/views/{id}")
-	public String view(Model map,@PathVariable("id") long id) {
-		Orders orders = orderService.getById(id);
-		if(orders == null) {
-			throw new ResourceNotFoundException("orders not found with id :" + id);
-		}
-		map.addAttribute("submitForm", orders);
-		map.addAttribute("title", "View");
-		map.addAttribute("viewOnly", true);
-		return "orders/orders-action";
-	}
+ 
 	
 	@GetMapping("/delete/{id}")
 	public String delete(ModelMap map,@PathVariable("id")long id, HttpSession session) {
@@ -182,12 +159,18 @@ public class OrderController {
 	public String save(Model map, @Validated @ModelAttribute("submitForm") Orders orderss,
 			BindingResult result, HttpSession session) {
 		if(result.hasErrors()) {
+			Product product = productService.getById(orderss.getProducts().getId());
+			orderss.setProducts(product);
+			map.addAttribute("submitForm", orderss);
 			return "client/thanh-toan";
 		}
 		try {
 			orderss.setApprovedStep(ApprovedStep.IN_PROGRESS.getValue());
 			orderss.setPrice(orderss.getProducts().getPrice());
 			orderss.setDate(new Date());
+			String username = (String) session.getAttribute(Constant.USER_INFO);
+			User user = userService.getByName(username);
+			orderss.setUser(user);
 			orderService.createOrder(orderss);
 			session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
 		} catch (Exception e) {
