@@ -24,9 +24,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.entity.Orders;
+import com.app.entity.Product;
+import com.app.entity.User;
 import com.app.exception.ResourceNotFoundException;
 import com.app.model.PagingSearchFilterOrder;
 import com.app.service.OrderService;
+import com.app.service.ProductService;
+import com.app.service.UserService;
 import com.app.utils.ApprovedStep;
 import com.app.utils.Constant;
 import com.app.validator.OrderValidator;
@@ -38,6 +42,11 @@ public class OrderController {
 	OrderService orderService;
 	@Autowired
 	OrderValidator orderValidator;
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	ProductService productService;
 	 
  
 	private static final Logger log = LoggerFactory.getLogger(OrderController.class);
@@ -73,11 +82,22 @@ public class OrderController {
 		return "orders/orders-list";
 	}
  
-	@GetMapping("/add")
-	public String news(Model map, HttpSession session) {
+	@GetMapping("/add/{id}")
+	public String news(Model map, HttpSession session, @PathVariable("id") Long id) {
+ 
+		String username = (String) session.getAttribute(Constant.USER_INFO);
+		User user = userService.getByName(username);
+		if(user == null || user.getRole() == 1) {
+			return "redirect:/dang-nhap";
+		}
+		Product product = productService.getById(id);
+		Orders orders = new Orders();
+		orders.setProducts(product);
 		map.addAttribute("submitForm", new Orders());
 		map.addAttribute("viewOnly", false);
 		 
+		map.addAttribute("product", product);
+		
 		return "client/thanh-toan";
 	}
 	
