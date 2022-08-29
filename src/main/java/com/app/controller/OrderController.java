@@ -74,12 +74,13 @@ public class OrderController {
 	}
  
 	@GetMapping("/add")
-	public String news(Model map) {
+	public String news(Model map, HttpSession session) {
 		map.addAttribute("submitForm", new Orders());
 		map.addAttribute("viewOnly", false);
-		map.addAttribute("title", "Add");
-		return "orders/orders-action";
+		 
+		return "client/thanh-toan";
 	}
+	
 	@GetMapping("/edit/{id}")
 	public String edit(Model map,@PathVariable("id")long id) {
 		Orders orders = orderService.getById(id);
