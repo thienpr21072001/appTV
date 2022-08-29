@@ -129,6 +129,6 @@ public class HomeController {
 	public String lienHe(HttpSession session) {
 	 
 		 
-		return "redirect:/lien-he";
+		return "client/lien-he";
 	}
 }
