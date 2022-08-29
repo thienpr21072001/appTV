@@ -35,6 +35,8 @@ public class Product implements  Serializable{
 	@Transient
 	private MultipartFile multipartFile;
 	
+	private int numberDay;
+	
 	
 	public long getId() {
 		return id;
@@ -103,6 +105,12 @@ public class Product implements  Serializable{
 	}
 	public void setProvinceText(String provinceText) {
 		this.provinceText = provinceText;
+	}
+	public int getNumberDay() {
+		return numberDay;
+	}
+	public void setNumberDay(int numberDay) {
+		this.numberDay = numberDay;
 	}
  
 	 

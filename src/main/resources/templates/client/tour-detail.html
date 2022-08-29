@@ -126,10 +126,7 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="product_meta">
-                                    <span class="posted_in">Danh mục: <a href="../../danh-muc/tour-du-lich/mien-nam/index.html" rel="tag">Miền nam</a>, <a href="../../danh-muc/tour-du-lich/mien-nam/phan-thiet/index.html" rel="tag">Phan Thiết</a>, <a href="../../danh-muc/tour-du-lich/index.html" rel="tag">Tour du lịch</a></span>
-                                 </div>
-                                 <div class="social-icons share-icons share-row relative icon-style-outline " ><a href="whatsapp://send?text=Beach%20Resort%20Phan%20Thi%E1%BA%BFt%20Khuy%E1%BA%BFn%20M%C3%A3i%20M%C3%B9a%20%C4%90%C3%B4ng - http://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/" data-action="share/whatsapp/share" class="icon button circle is-outline tooltip whatsapp show-for-medium" title="Share on WhatsApp"><i class="icon-phone"></i></a><a href="http://www.facebook.com/sharer.php?u=http://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/" data-label="Facebook" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip facebook" title="Share on Facebook"><i class="icon-facebook" ></i></a><a href="http://twitter.com/share?url=http://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip twitter" title="Share on Twitter"><i class="icon-twitter" ></i></a><a href="https://mauweb.monamedia.net/cdn-cgi/l/email-protection#0d686379687f7462787f4d6c69697f687e7e65687f68236e6260327e786f67686e79304f686c6e65283f3d5f687e627f79283f3d5d656c63283f3d59656428483c284f4c284f4b79283f3d4665787428483c284f4c284f4b63283f3d40284e3e284c3e64283f3d40284e3e284f346c283f3d284e3928343d284e3e284f39636a2b6c607d366f626974304e65686e66283f3d7965647e283f3d62787937283f3d6579797d372222606c787a686f236062636c606869646c23636879226168797e20797f6c7b6861227e6c63207d656c60226f686c6e65207f687e627f79207d656c632079656468792066657874686320606c642060786c206962636a22" rel="nofollow" class="icon button circle is-outline tooltip email" title="Email to a Friend"><i class="icon-envelop" ></i></a><a href="http://pinterest.com/pin/create/button/?url=http://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/&amp;media=http://mauweb.monamedia.net/lets-travel/content/uploads/2018/01/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png&amp;description=Beach%20Resort%20Phan%20Thi%E1%BA%BFt%20Khuy%E1%BA%BFn%20M%C3%A3i%20M%C3%B9a%20%C4%90%C3%B4ng" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="nofollow" target="_blank" class="icon button circle is-outline tooltip pinterest" title="Pin on Pinterest"><i class="icon-pinterest" ></i></a><a href="http://plus.google.com/share?url=http://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/" target="_blank" class="icon button circle is-outline tooltip google-plus" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;" rel="nofollow" title="Share on Google+"><i class="icon-google-plus" ></i></a><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://mauweb.monamedia.net/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/&amp;title=Beach%20Resort%20Phan%20Thi%E1%BA%BFt%20Khuy%E1%BA%BFn%20M%C3%A3i%20M%C3%B9a%20%C4%90%C3%B4ng" onclick="window.open(this.href,this.title,'width=500,height=500,top=300px,left=300px');  return false;"  rel="nofollow" target="_blank" class="icon button circle is-outline tooltip linkedin" title="Share on LinkedIn"><i class="icon-linkedin" ></i></a></div>
+                               
                               </div>
                               <!-- .summary -->
                               <div id="product-sidebar" class="mfp-hide">
@@ -263,8 +260,19 @@
                                           </tr>
                                        </table>
                                     </div>
+                                     <div class="panel entry-content " id="tab-additional_information">
+                                       <table class="shop_attributes">
+                                          <tr>
+                                             <th>Số ngày</th>
+                                             <td>
+                                                <p><a href="javascript:void(0)" th:text="${product.numberDay}" rel="tag"> </a></p>
+                                             </td>
+                                          </tr>
+                                       </table>
+                                    </div>
  
                                  </div>
+								 
                                  <!-- .tab-panels -->
                               </div>
                               <!-- .tabbed-content -->
@@ -423,35 +431,7 @@
          </div>
          <!-- inner -->
       </div>
-      <!-- #mobile-menu -->
-      <div id="login-form-popup" class="lightbox-content mfp-hide">
-         <div class="account-container lightbox-inner">
-            <div class="account-login-inner">
-               <h3 class="uppercase">Đăng nhập</h3>
-               <form class="woocommerce-form woocommerce-form-login login" method="post">
-                  <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                     <label for="username">Tên tài khoản hoặc địa chỉ email <span class="required">*</span></label>
-                     <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="" />				
-                  </p>
-                  <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                     <label for="password">Mật khẩu <span class="required">*</span></label>
-                     <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
-                  </p>
-                  <p class="form-row">
-                     <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ae39045dc9" /><input type="hidden" name="_wp_http_referer" value="/lets-travel/san-pham/beach-resort-phan-thiet-khuyen-mai-mua-dong/" />					<button type="submit" class="woocommerce-Button button" name="login" value="Đăng nhập">Đăng nhập</button>
-                     <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-                     <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Ghi nhớ mật khẩu</span>
-                     </label>
-                  </p>
-                  <p class="woocommerce-LostPassword lost_password">
-                     <a href="../../tai-khoan/lost-password/index.html">Quên mật khẩu?</a>
-                  </p>
-               </form>
-            </div>
-            <!-- .login-inner -->
-         </div>
-         <!-- .account-login-container -->
-      </div>
+ 
       <script data-cfasync="false" src="https://mauweb.monamedia.net/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@graph":[{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":"1","item":{"name":"Trang ch\u1ee7","@id":"http:\/\/mauweb.monamedia.net\/lets-travel"}},{"@type":"ListItem","position":"2","item":{"name":"Tour du l\u1ecbch","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/danh-muc\/tour-du-lich\/"}},{"@type":"ListItem","position":"3","item":{"name":"Mi\u1ec1n nam","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/danh-muc\/tour-du-lich\/mien-nam\/"}},{"@type":"ListItem","position":"4","item":{"name":"Phan Thi\u1ebft","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/danh-muc\/tour-du-lich\/mien-nam\/phan-thiet\/"}},{"@type":"ListItem","position":"5","item":{"name":"Beach Resort Phan Thi\u1ebft Khuy\u1ebfn M\u00e3i M\u00f9a \u0110\u00f4ng"}}]},{"@context":"https:\/\/schema.org\/","@type":"Product","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/san-pham\/beach-resort-phan-thiet-khuyen-mai-mua-dong\/","name":"Beach Resort Phan Thi\u1ebft Khuy\u1ebfn M\u00e3i M\u00f9a \u0110\u00f4ng","image":"http:\/\/mauweb.monamedia.net\/lets-travel\/content\/uploads\/2018\/01\/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png","description":"\u0110\u1eb7t ph\u00f2ng kh\u00e1ch s\u1ea1n Victoria Phan Thiet Beach Resort\u00a0- Victoria Phan Thi\u1ebft Beach Resort &amp; Spa g\u1ed3m 57 bungalows \u0111\u01b0\u1ee3c thi\u1ebft k\u1ebf theo phong c\u00e1ch nh\u1eefng ng\u00f4i nh\u00e0 m\u00e1i tranh m\u1ed9c m\u1ea1c \u1edf mi\u1ec1n qu\u00ea \u1ea9n m\u00ecnh trong khu v\u01b0\u1eddn nhi\u1ec7t \u0111\u1edbi quy\u1ebfn r\u0169.","sku":"","offers":[{"@type":"Offer","price":"2999000","priceCurrency":"VND","availability":"https:\/\/schema.org\/InStock","url":"http:\/\/mauweb.monamedia.net\/lets-travel\/san-pham\/beach-resort-phan-thiet-khuyen-mai-mua-dong\/","seller":{"@type":"Organization","name":"Let's Travel","url":"http:\/\/mauweb.monamedia.net\/lets-travel"}}]}]}</script>
       <!-- Root element of PhotoSwipe. Must have class pswp. -->
       <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

@@ -27,6 +27,7 @@ public class ProductValidator implements Validator{
 		// TODO Auto-generated method stub
 		ValidationUtils.rejectIfEmpty(errors, "name", "error.required");
 		ValidationUtils.rejectIfEmpty(errors, "price", "error.required");
+		ValidationUtils.rejectIfEmpty(errors, "numberDay", "error.required");
 		
 		Product products = (Product) target;
 		

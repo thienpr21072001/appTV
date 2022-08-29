@@ -124,6 +124,17 @@
 											    </select>
 											</div>
 										</div>
+										
+										 <div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Số ngày<span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input th:field="*{numberDay}" name="numberDay" class="form-control" placeholder="Số ngày..." type="number" th:readonly="${viewOnly == true}" />														
+												<div class="has-error">
+													<span style="color: red" th:if="${#fields.hasErrors('numberDay')}" th:errors="*{numberDay}" ></span>
+												</div>
+											</div>
+										</div>
 										 	
 										<div class="ln_solid"></div>
 											<div class="item form-group">
