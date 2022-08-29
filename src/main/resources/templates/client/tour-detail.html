@@ -291,102 +291,15 @@
             <!-- shop container -->
          </main>
          <!-- #main -->
-         
+          <footer th:replace="layoutsClient::footer" id="footer" class="footer-wrapper">
+       
+    		</footer>
    
          <!-- .footer-wrapper -->
       </div>
       <!-- #wrapper -->
       <!-- Mobile Sidebar -->
-      <div id="main-menu" class="mobile-sidebar no-scrollbar mfp-hide">
-         <div class="sidebar-menu no-scrollbar ">
-            <ul class="nav nav-sidebar  nav-vertical nav-uppercase">
-               <li class="header-search-form search-form html relative has-icon">
-                  <div class="header-search-form-wrapper">
-                     <div class="searchform-wrapper ux-search-box relative form- is-normal">
-                        <form role="search" method="get" class="searchform" action="https://mauweb.monamedia.net/lets-travel/">
-                           <div class="flex-row relative">
-                              <div class="flex-col flex-grow">
-                                 <input type="search" class="search-field mb-0" name="s" value="" placeholder="Tìm kiếm&hellip;" />
-                                 <input type="hidden" name="post_type" value="product" />
-                              </div>
-                              <!-- .flex-col -->
-                              <div class="flex-col">
-                                 <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                 <i class="icon-search" ></i>				</button>
-                              </div>
-                              <!-- .flex-col -->
-                           </div>
-                           <!-- .flex-row -->
-                           <div class="live-search-results text-left z-top"></div>
-                        </form>
-                     </div>
-                  </div>
-               </li>
-               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1113"><a href="../../index.html" class="menu-image-title-after"><span class="menu-image-title">Trang chủ</span></a></li>
-               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1114"><a href="../../gioi-thieu/index.html" class="menu-image-title-after"><span class="menu-image-title">Giới thiệu</span></a></li>
-               <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent menu-item-has-children menu-item-1226">
-                  <a href="../../danh-muc/tour-du-lich/index.html" class="menu-image-title-after"><span class="menu-image-title">Tour du lịch</span></a>
-                  <ul class=children>
-                     <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1227">
-                        <a href="../../danh-muc/tour-du-lich/mien-bac/index.html" class="menu-image-title-after"><span class="menu-image-title">Miền bắc</span></a>
-                        <ul class=nav-sidebar-ul>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1228"><a href="../../danh-muc/tour-du-lich/mien-bac/ha-noi/index.html" class="menu-image-title-after"><span class="menu-image-title">Hà Nội</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1229"><a href="../../danh-muc/tour-du-lich/mien-bac/sapa/index.html" class="menu-image-title-after"><span class="menu-image-title">Sapa</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1230"><a href="../../danh-muc/tour-du-lich/mien-bac/vinh-ha-long/index.html" class="menu-image-title-after"><span class="menu-image-title">Vịnh Hạ Long</span></a></li>
-                        </ul>
-                     </li>
-                     <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-1231">
-                        <a href="../../danh-muc/tour-du-lich/mien-trung/index.html" class="menu-image-title-after"><span class="menu-image-title">Miền trung</span></a>
-                        <ul class=nav-sidebar-ul>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1233"><a href="../../danh-muc/tour-du-lich/mien-trung/hue/index.html" class="menu-image-title-after"><span class="menu-image-title">Huế</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1232"><a href="../../danh-muc/tour-du-lich/mien-trung/da-nang/index.html" class="menu-image-title-after"><span class="menu-image-title">Đà Nẵng</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1235"><a href="../../danh-muc/tour-du-lich/mien-trung/phu-yen/index.html" class="menu-image-title-after"><span class="menu-image-title">Phú Yên</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1234"><a href="../../danh-muc/tour-du-lich/mien-trung/nha-trang/index.html" class="menu-image-title-after"><span class="menu-image-title">Nha Trang</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1236"><a href="../../danh-muc/tour-du-lich/mien-trung/quang-nam/index.html" class="menu-image-title-after"><span class="menu-image-title">Quảng Nam</span></a></li>
-                        </ul>
-                     </li>
-                     <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent menu-item-has-children menu-item-1237">
-                        <a href="../../danh-muc/tour-du-lich/mien-nam/index.html" class="menu-image-title-after"><span class="menu-image-title">Miền nam</span></a>
-                        <ul class=nav-sidebar-ul>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1239"><a href="../../danh-muc/tour-du-lich/mien-nam/da-lat/index.html" class="menu-image-title-after"><span class="menu-image-title">Đà Lạt</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1238"><a href="../../danh-muc/tour-du-lich/mien-nam/con-dao/index.html" class="menu-image-title-after"><span class="menu-image-title">Côn Đảo</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat current-product-ancestor current-menu-parent current-product-parent menu-item-1240"><a href="../../danh-muc/tour-du-lich/mien-nam/phan-thiet/index.html" class="menu-image-title-after"><span class="menu-image-title">Phan Thiết</span></a></li>
-                           <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1241"><a href="../../danh-muc/tour-du-lich/mien-nam/phu-quoc/index.html" class="menu-image-title-after"><span class="menu-image-title">Phú Quốc</span></a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               </li>
-               <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-1242"><a href="../../danh-muc/khach-san/index.html" class="menu-image-title-after"><span class="menu-image-title">Khách sạn</span></a></li>
-               <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1116"><a href="../../category/tin-tuc/index.html" class="menu-image-title-after"><span class="menu-image-title">Tin tức</span></a></li>
-               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1115"><a href="../../lien-he/index.html" class="menu-image-title-after"><span class="menu-image-title">Liên hệ</span></a></li>
-               <li class="account-item has-icon menu-item">
-                  <a href="../../tai-khoan/index.html" class="nav-top-link nav-top-not-logged-in">
-                  <span class="header-account-title">
-                  Đăng nhập  </span>
-                  </a><!-- .account-login-link -->
-               </li>
-               <li class="html custom html_topbar_right">
-                  <div class="header_main_link">
-                     <p>
-                        <img src="https://mauweb.monamedia.net/party/content/uploads/2018/01/icon-phone.svg">
-                        <a href="tel:+01269220162">
-                     <p>0126 922 0162</br> Hotline</p></a>
-                     </p>
-                  </div>
-               </li>
-               <li class="html custom html_top_right_text">
-                  <div class="header_main_link">
-                     <p>
-                        <img src="https://mauweb.monamedia.net/party/content/uploads/2018/01/icon-cart.svg">
-                        <a href="../../category/tin-tuc/index.html">
-                     <p>Những kiến thức</br>bổ ích</p></a>
-                     </p>
-                  </div>
-               </li>
-            </ul>
-         </div>
-         <!-- inner -->
-      </div>
+   
  
       <script data-cfasync="false" src="https://mauweb.monamedia.net/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@graph":[{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":"1","item":{"name":"Trang ch\u1ee7","@id":"http:\/\/mauweb.monamedia.net\/lets-travel"}},{"@type":"ListItem","position":"2","item":{"name":"Tour du l\u1ecbch","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/danh-muc\/tour-du-lich\/"}},{"@type":"ListItem","position":"3","item":{"name":"Mi\u1ec1n nam","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/danh-muc\/tour-du-lich\/mien-nam\/"}},{"@type":"ListItem","position":"4","item":{"name":"Phan Thi\u1ebft","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/danh-muc\/tour-du-lich\/mien-nam\/phan-thiet\/"}},{"@type":"ListItem","position":"5","item":{"name":"Beach Resort Phan Thi\u1ebft Khuy\u1ebfn M\u00e3i M\u00f9a \u0110\u00f4ng"}}]},{"@context":"https:\/\/schema.org\/","@type":"Product","@id":"http:\/\/mauweb.monamedia.net\/lets-travel\/san-pham\/beach-resort-phan-thiet-khuyen-mai-mua-dong\/","name":"Beach Resort Phan Thi\u1ebft Khuy\u1ebfn M\u00e3i M\u00f9a \u0110\u00f4ng","image":"http:\/\/mauweb.monamedia.net\/lets-travel\/content\/uploads\/2018\/01\/dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0.png","description":"\u0110\u1eb7t ph\u00f2ng kh\u00e1ch s\u1ea1n Victoria Phan Thiet Beach Resort\u00a0- Victoria Phan Thi\u1ebft Beach Resort &amp; Spa g\u1ed3m 57 bungalows \u0111\u01b0\u1ee3c thi\u1ebft k\u1ebf theo phong c\u00e1ch nh\u1eefng ng\u00f4i nh\u00e0 m\u00e1i tranh m\u1ed9c m\u1ea1c \u1edf mi\u1ec1n qu\u00ea \u1ea9n m\u00ecnh trong khu v\u01b0\u1eddn nhi\u1ec7t \u0111\u1edbi quy\u1ebfn r\u0169.","sku":"","offers":[{"@type":"Offer","price":"2999000","priceCurrency":"VND","availability":"https:\/\/schema.org\/InStock","url":"http:\/\/mauweb.monamedia.net\/lets-travel\/san-pham\/beach-resort-phan-thiet-khuyen-mai-mua-dong\/","seller":{"@type":"Organization","name":"Let's Travel","url":"http:\/\/mauweb.monamedia.net\/lets-travel"}}]}]}</script>
       <!-- Root element of PhotoSwipe. Must have class pswp. -->
