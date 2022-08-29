@@ -93,4 +93,10 @@ public class HomeController {
 		 
 		return "client/introduce";
 	}
+	
+	@GetMapping(value = {"/dang-nhap"})
+	public String dangNhap(HttpSession session, ModelMap map) {
+		map.addAttribute("submitForm", new User());
+		return "client/dang-nhap";
+	}
 }
