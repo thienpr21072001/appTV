@@ -255,9 +255,9 @@
 															id="image_313010135">
 															<div class="img-inner dark">
 																<img width="276" height="536"
-																	src="../content/uploads/2018/02/contact-people.png"
+																	th:src="@{/content/uploads/2018/02/contact-people.png}"
 																	class="attachment-original size-original" alt=""
-																	srcset="http://mauweb.monamedia.net/lets-travel/content/uploads/2018/02/contact-people.png 276w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/02/contact-people-154x300.png 154w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/02/contact-people-12x24.png 12w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/02/contact-people-19x36.png 19w, http://mauweb.monamedia.net/lets-travel/content/uploads/2018/02/contact-people-25x48.png 25w"
+																	 
 																	sizes="(max-width: 276px) 100vw, 276px" />
 															</div>
 															<style scope="scope">
@@ -288,21 +288,13 @@
 															dir="ltr">
 															<div class="screen-reader-response"></div>
 															<form
-																action="https://mauweb.monamedia.net/lets-travel/lien-he/#wpcf7-f5-p20-o1"
-																method="post" class="wpcf7-form"
+																th:action="@{/contacts/save}" method="POST" th:object="${submitForm}"
+																 class="wpcf7-form"
 																novalidate="novalidate">
-																<div style="display: none;">
-																	<input type="hidden" name="_wpcf7" value="5" />
-																	<input type="hidden" name="_wpcf7_version"
-																		value="5.0" />
-																	<input type="hidden" name="_wpcf7_locale"
-																		value="vi" />
-																	<input type="hidden" name="_wpcf7_unit_tag"
-																		value="wpcf7-f5-p20-o1" />
-																	<input type="hidden" name="_wpcf7_container_post"
-																		value="20" />
-																</div>
-																<p><span class="wpcf7-form-control-wrap text-name"><input
+													 
+																<p><span class="wpcf7-form-control-wrap text-name">
+																	<input
+																		th:field="*{name}"
 																			type="text" name="text-name" value=""
 																			size="40"
 																			class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form_contact"
@@ -310,7 +302,9 @@
 																			aria-invalid="false"
 																			placeholder="Họ và tên" /></span><br />
 																	<span
-																		class="wpcf7-form-control-wrap email-contact"><input
+																		class="wpcf7-form-control-wrap email-contact">
+																		<input
+																			th:field="*{email}"
 																			type="email" name="email-contact" value=""
 																			size="40"
 																			class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form_contact"
@@ -318,7 +312,9 @@
 																			aria-invalid="false"
 																			placeholder="Email" /></span><br />
 																	<span
-																		class="wpcf7-form-control-wrap textarea-mess"><textarea
+																		class="wpcf7-form-control-wrap textarea-mess">
+																		<textarea
+																			th:field="*{content}"
 																			name="textarea-mess" cols="40" rows="10"
 																			class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form_contact"
 																			id="textarea-mess" aria-required="true"

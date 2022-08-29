@@ -26,7 +26,7 @@ public class ContactValidator implements Validator{
 		// TODO Auto-generated method stub
 		ValidationUtils.rejectIfEmpty(errors, "name", "error.required");
 		ValidationUtils.rejectIfEmpty(errors, "email", "error.required");
- 
+		ValidationUtils.rejectIfEmpty(errors, "content", "error.required");
 	}
    
 }

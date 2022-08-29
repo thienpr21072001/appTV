@@ -72,6 +72,23 @@ public class ContactController {
 		return "contact/contact-list";
 	}
  
+	@PostMapping(value = {"/save"})
+	public String saveLienHe(ModelMap  map, @Validated @ModelAttribute("submitForm") Contact contact, BindingResult result, HttpSession session) {
+		if(result.hasErrors()) {
+			return "client/lien-he";
+		}
+		try {
+			contactService.createContact(contact);
+			session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
+		} catch (Exception e) {
+			// TODO: handle exception
+			log.warn("update faild  :"+ e.getMessage());
+			session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
+		}
+		return "redirect:/lien-he";
+	}
+	
+ 
 	@GetMapping("/add")
 	public String news(Model map) {
 		map.addAttribute("submitForm", new Contact());

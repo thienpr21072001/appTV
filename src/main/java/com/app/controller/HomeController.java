@@ -132,11 +132,4 @@ public class HomeController {
 		map.addAttribute("submitForm", new Contact());
 		return "client/lien-he";
 	}
-	
-	@PostMapping(value = {"/lien-he/save"})
-	public String saveLienHe(ModelMap  map, @Validated @ModelAttribute("submitForm") LoginRequest loginRequest, BindingResult result, HttpSession session) {
-	 
-		 
-		return "redirect:/lien-he";
-	}
 }
