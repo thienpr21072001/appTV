@@ -93,7 +93,7 @@ public class OrderController {
 		Product product = productService.getById(id);
 		Orders orders = new Orders();
 		orders.setProducts(product);
-		map.addAttribute("submitForm", new Orders());
+		map.addAttribute("submitForm", orders);
 		map.addAttribute("viewOnly", false);
 		 
 		map.addAttribute("product", product);
@@ -182,29 +182,20 @@ public class OrderController {
 	public String save(Model map, @Validated @ModelAttribute("submitForm") Orders orderss,
 			BindingResult result, HttpSession session) {
 		if(result.hasErrors()) {
-			return "orders/orders-action";
+			return "client/thanh-toan";
 		}
-		if(orderss.getId() != 0) {
-			try {
-				orderService.updateOrder(orderss);
-				session.setAttribute(Constant.MSG_SUCCESS, "Cập nhật thành công");
-			} catch (Exception e) {
-				// TODO: handle exception
-				log.warn("update faild  :"+ e.getMessage());
-				session.setAttribute(Constant.MSG_ERROR, "Cập nhật thất bại");
-			}
-		}else {
-			try {
-				orderss.setApprovedStep(ApprovedStep.IN_PROGRESS.getValue());
-				orderService.createOrder(orderss);
-				session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
-			} catch (Exception e) {
-				// TODO: handle exception
-				log.warn("add faild  :"+ e.getMessage());
-				session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
-			}
+		try {
+			orderss.setApprovedStep(ApprovedStep.IN_PROGRESS.getValue());
+			orderss.setPrice(orderss.getProducts().getPrice());
+			orderss.setDate(new Date());
+			orderService.createOrder(orderss);
+			session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
+		} catch (Exception e) {
+			// TODO: handle exception
+			log.warn("add faild  :"+ e.getMessage());
+			session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
 		}
-		return "redirect:/orderss/list/1";
+		return "redirect:/trang-chu";
 	}
  
 }
