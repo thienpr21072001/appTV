@@ -68,6 +68,9 @@ public class HomeController {
 			return "login/login";
 		}
 		User user = userService.getByName(loginRequest.getUsername());
+		if(user.getRole() == 2) {
+			return "redirect:/dang-nhap";
+		}
 		session.setAttribute(Constant.USER_INFO, user.getUsername());
 		
 		return "redirect:/index";
@@ -98,5 +101,19 @@ public class HomeController {
 	public String dangNhap(HttpSession session, ModelMap map) {
 		map.addAttribute("submitForm", new User());
 		return "client/dang-nhap";
+	}
+	
+	@PostMapping(value = {"/xu-ly"})
+	public String xuLy(ModelMap map, @Validated @ModelAttribute("submitForm") LoginRequest loginRequest, BindingResult result, HttpSession session) {
+		if(result.hasErrors()) {
+			return "client/dang-nhap";
+		}
+		 
+		User user = userService.getByName(loginRequest.getUsername());
+		if(user.getRole() == 1) {
+			return "redirect:/login";
+		}
+		session.setAttribute(Constant.USER_INFO, user.getUsername());
+		return "client/index";
 	}
 }
