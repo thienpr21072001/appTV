@@ -131,4 +131,11 @@ public class HomeController {
 		 
 		return "client/lien-he";
 	}
+	
+	@PostMapping(value = {"/lien-he/save"})
+	public String saveLienHe(HttpSession session) {
+	 
+		 
+		return "client/lien-he";
+	}
 }
