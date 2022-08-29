@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
 		user.setCreateDate(new Date());
 		user.setUpdateDate(new Date());
 		user.setStatus(1);
-		user.setRole(1);
+		 
 		return userRepo.save(user);
 	}
  
@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		user.setUpdateDate(new Date());
 		user.setStatus(1);
-		user.setRole(1);
 		return userRepo.save(user);
 	}
 

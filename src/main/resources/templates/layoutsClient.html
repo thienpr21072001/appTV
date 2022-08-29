@@ -200,10 +200,15 @@
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
                     href="lien-he/index.html" class="menu-image-title-after nav-top-link"><span
                       class="menu-image-title" >Liên hệ</span></a></li>
-               	<li id="menu-item-1115"
+               	<li id="menu-item-1115" th:if="${session.userInfo == null}"
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
                     th:href="@{/dang-nhap}" class="menu-image-title-after nav-top-link"><span
                       class="menu-image-title" >Đăng nhập</span></a></li>
+                      
+                <li id="menu-item-1115" th:if="${session.userInfo != null}"
+                  class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
+                    th:href="@{/thoat}" class="menu-image-title-after nav-top-link"><span
+                      class="menu-image-title" >Thoát</span></a></li>
               </ul>
             </div>
             <!-- Mobile Right Elements -->
@@ -3683,10 +3688,16 @@
         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1115"><a href="lien-he/index.html"
             class="menu-image-title-after"><span class="menu-image-title">Liên hệ</span></a></li>
         <li class="account-item has-icon menu-item">
-          <a href="tai-khoan/index.html" class="nav-top-link nav-top-not-logged-in">
-            <span class="header-account-title">
-              Đăng nhập </span>
+        
+          <a href="/dang-nhap" class="nav-top-link nav-top-not-logged-in"  >
+            <span class="header-account-title"  >Đăng nhập </span>
           </a><!-- .account-login-link -->
+          	
+         
+          <a href="/thoat" class="nav-top-link nav-top-not-logged-in"  >
+            <span class="header-account-title"  >Thoát </span>
+          </a><!-- .account-login-link -->
+  
         </li>
         <li class="html custom html_topbar_right">
           <div class="header_main_link">

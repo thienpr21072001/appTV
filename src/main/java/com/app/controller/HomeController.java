@@ -108,12 +108,20 @@ public class HomeController {
 		if(result.hasErrors()) {
 			return "client/dang-nhap";
 		}
-		 
+ 
 		User user = userService.getByName(loginRequest.getUsername());
 		if(user.getRole() == 1) {
 			return "redirect:/login";
 		}
 		session.setAttribute(Constant.USER_INFO, user.getUsername());
-		return "client/index";
+		 
+		return "redirect:/trang-chu";
+	}
+	
+	@GetMapping(value = {"/thoat"})
+	public String thoat(HttpSession session) {
+		session.removeAttribute(Constant.USER_INFO);
+		 
+		return "redirect:/trang-chu";
 	}
 }

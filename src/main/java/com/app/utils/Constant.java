@@ -13,5 +13,6 @@ public class Constant {
 	public static final String MSG_ERROR = "msgError";
 	public static final String MSG_SUCCESS = "msgSuccess";
 	public static final String USER_INFO = "userInfo";
+	public static final String IS_AUTENTICATED = "isAuthenticated";
  
 }
