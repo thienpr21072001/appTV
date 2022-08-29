@@ -124,4 +124,11 @@ public class HomeController {
 		 
 		return "redirect:/trang-chu";
 	}
+	
+	@GetMapping(value = {"/lien-he"})
+	public String lienHe(HttpSession session) {
+	 
+		 
+		return "redirect:/lien-he";
+	}
 }
