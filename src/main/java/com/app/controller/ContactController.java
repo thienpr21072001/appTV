@@ -79,89 +79,89 @@ public class ContactController {
 		}
 		try {
 			contactService.createContact(contact);
-			session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
+			//session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
 		} catch (Exception e) {
 			// TODO: handle exception
 			log.warn("update faild  :"+ e.getMessage());
-			session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
+			//session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
 		}
 		return "redirect:/lien-he";
 	}
 	
- 
-	@GetMapping("/add")
-	public String news(Model map) {
-		map.addAttribute("submitForm", new Contact());
-		map.addAttribute("viewOnly", false);
-		map.addAttribute("title", "Add");
-		return "contact/contact-action";
-	}
-	@GetMapping("/edit/{id}")
-	public String edit(Model map,@PathVariable("id")long id) {
-		Contact contact = contactService.getById(id);
-		if(contact == null) {
-			throw new ResourceNotFoundException("contact not found with id :" + id);
-		}
-		map.addAttribute("submitForm", contact);
-		map.addAttribute("viewOnly", false);
-		map.addAttribute("title", "Edit");
-		return "contact/contact-action";
-	}
-	
-	@GetMapping("/views/{id}")
-	public String view(Model map,@PathVariable("id") long id) {
-		Contact contact = contactService.getById(id);
-		if(contact == null) {
-			throw new ResourceNotFoundException("contact not found with id :" + id);
-		}
-		map.addAttribute("submitForm", contact);
-		map.addAttribute("title", "View");
-		map.addAttribute("viewOnly", true);
-		return "contact/contact-action";
-	}
-	
-	@GetMapping("/delete/{id}")
-	public String delete(ModelMap map,@PathVariable("id")long id, HttpSession session) {
-		Contact contact = contactService.getById(id);
-		if(contact == null) {
-			throw new ResourceNotFoundException("contact not found with id :" + id);
-		}
-		try {
-			contactService.deleteContact(contact);
-			session.setAttribute(Constant.MSG_SUCCESS, "Xóa thành công");
-		} catch (Exception e) {
-			// TODO: handle exception
-			log.warn("delete faild  :"+ e.getMessage());
-			session.setAttribute(Constant.MSG_ERROR, "Xóa thất bại");
-		}
-		return "redirect:/contacts/list/1";
-	}
-	@PostMapping("/save")
-	public String save(Model map, @Validated @ModelAttribute("submitForm") Contact contacts,
-			BindingResult result, HttpSession session) {
-		if(result.hasErrors()) {
-			return "contact/contact-action";
-		}
-		if(contacts.getId() != 0) {
-			try {
-				contactService.updateContact(contacts);
-				session.setAttribute(Constant.MSG_SUCCESS, "Cập nhật thành công");
-			} catch (Exception e) {
-				// TODO: handle exception
-				log.warn("update faild  :"+ e.getMessage());
-				session.setAttribute(Constant.MSG_ERROR, "Cập nhật thất bại");
-			}
-		}else {
-			try {
-				contactService.createContact(contacts);
-				session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
-			} catch (Exception e) {
-				// TODO: handle exception
-				log.warn("add faild  :"+ e.getMessage());
-				session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
-			}
-		}
-		return "redirect:/contacts/list/1";
-	}
+// 
+//	@GetMapping("/add")
+//	public String news(Model map) {
+//		map.addAttribute("submitForm", new Contact());
+//		map.addAttribute("viewOnly", false);
+//		map.addAttribute("title", "Add");
+//		return "contact/contact-action";
+//	}
+//	@GetMapping("/edit/{id}")
+//	public String edit(Model map,@PathVariable("id")long id) {
+//		Contact contact = contactService.getById(id);
+//		if(contact == null) {
+//			throw new ResourceNotFoundException("contact not found with id :" + id);
+//		}
+//		map.addAttribute("submitForm", contact);
+//		map.addAttribute("viewOnly", false);
+//		map.addAttribute("title", "Edit");
+//		return "contact/contact-action";
+//	}
+//	
+//	@GetMapping("/views/{id}")
+//	public String view(Model map,@PathVariable("id") long id) {
+//		Contact contact = contactService.getById(id);
+//		if(contact == null) {
+//			throw new ResourceNotFoundException("contact not found with id :" + id);
+//		}
+//		map.addAttribute("submitForm", contact);
+//		map.addAttribute("title", "View");
+//		map.addAttribute("viewOnly", true);
+//		return "contact/contact-action";
+//	}
+//	
+//	@GetMapping("/delete/{id}")
+//	public String delete(ModelMap map,@PathVariable("id")long id, HttpSession session) {
+//		Contact contact = contactService.getById(id);
+//		if(contact == null) {
+//			throw new ResourceNotFoundException("contact not found with id :" + id);
+//		}
+//		try {
+//			contactService.deleteContact(contact);
+//			session.setAttribute(Constant.MSG_SUCCESS, "Xóa thành công");
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			log.warn("delete faild  :"+ e.getMessage());
+//			session.setAttribute(Constant.MSG_ERROR, "Xóa thất bại");
+//		}
+//		return "redirect:/contacts/list/1";
+//	}
+//	@PostMapping("/save")
+//	public String save(Model map, @Validated @ModelAttribute("submitForm") Contact contacts,
+//			BindingResult result, HttpSession session) {
+//		if(result.hasErrors()) {
+//			return "contact/contact-action";
+//		}
+//		if(contacts.getId() != 0) {
+//			try {
+//				contactService.updateContact(contacts);
+//				session.setAttribute(Constant.MSG_SUCCESS, "Cập nhật thành công");
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				log.warn("update faild  :"+ e.getMessage());
+//				session.setAttribute(Constant.MSG_ERROR, "Cập nhật thất bại");
+//			}
+//		}else {
+//			try {
+//				contactService.createContact(contacts);
+//				session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				log.warn("add faild  :"+ e.getMessage());
+//				session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
+//			}
+//		}
+//		return "redirect:/contacts/list/1";
+//	}
  
 }

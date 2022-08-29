@@ -300,7 +300,11 @@
 																			class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form_contact"
 																			id="text-name" aria-required="true"
 																			aria-invalid="false"
-																			placeholder="Họ và tên" /></span><br />
+																			placeholder="Họ và tên" /></span>
+																		                                    <div class="has-error">
+					         			 <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" ></span>     		
+					         		</div>	
+																		<br />
 																	<span
 																		class="wpcf7-form-control-wrap email-contact">
 																		<input
@@ -310,7 +314,11 @@
 																			class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form_contact"
 																			id="email-contact" aria-required="true"
 																			aria-invalid="false"
-																			placeholder="Email" /></span><br />
+																			placeholder="Email" /></span>
+																			                                    <div class="has-error">
+					         			 <span style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" ></span>     		
+					         		</div>
+																			<br />
 																	<span
 																		class="wpcf7-form-control-wrap textarea-mess">
 																		<textarea
@@ -323,6 +331,9 @@
 																	<input type="submit" value="Gửi tin nhắn"
 																		class="wpcf7-form-control wpcf7-submit form_contact"
 																		id="bt-gui" />
+																		                                    <div class="has-error">
+					         			 <span style="color: red" th:if="${#fields.hasErrors('content')}" th:errors="*{content}" ></span>     		
+					         		</div>
 																</p>
 																<div class="wpcf7-response-output wpcf7-display-none">
 																</div>
