@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.app.entity.Contact;
 import com.app.entity.Product;
 import com.app.entity.User;
 import com.app.model.LoginRequest;
@@ -126,16 +127,16 @@ public class HomeController {
 	}
 	
 	@GetMapping(value = {"/lien-he"})
-	public String lienHe(HttpSession session) {
-	 
+	public String lienHe(HttpSession session, ModelMap map) {
 		 
+		map.addAttribute("submitForm", new Contact());
 		return "client/lien-he";
 	}
 	
 	@PostMapping(value = {"/lien-he/save"})
-	public String saveLienHe(HttpSession session) {
+	public String saveLienHe(ModelMap  map, @Validated @ModelAttribute("submitForm") LoginRequest loginRequest, BindingResult result, HttpSession session) {
 	 
 		 
-		return "client/lien-he";
+		return "redirect:/lien-he";
 	}
 }
