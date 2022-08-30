@@ -172,13 +172,33 @@ public class OrderController {
 			User user = userService.getByName(username);
 			orderss.setUser(user);
 			orderService.createOrder(orderss);
-			session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
+			session.setAttribute(Constant.MSG_SUCCESS, "Đặt thành công");
 		} catch (Exception e) {
 			// TODO: handle exception
 			log.warn("add faild  :"+ e.getMessage());
-			session.setAttribute(Constant.MSG_ERROR, "Thêm thất bại");
+			session.setAttribute(Constant.MSG_ERROR, "Đặt thất bại");
 		}
 		return "redirect:/trang-chu";
 	}
  
+	
+	@RequestMapping("/lich-tour/{page}")
+	public String lichTour(Model model,  HttpSession session, @PathVariable("page") int page) {
+		PagingSearchFilterOrder searchForm = new PagingSearchFilterOrder();
+		searchForm.setPage(page);
+		Page<Orders> pageProduct = orderService.getAll(searchForm);
+		model.addAttribute("searchForm", searchForm);
+		model.addAttribute("pageProduct",pageProduct);
+ 
+		if(session.getAttribute(Constant.MSG_ERROR) != null) {
+			model.addAttribute(Constant.MSG_ERROR, session.getAttribute(Constant.MSG_ERROR));
+			session.removeAttribute(Constant.MSG_ERROR);
+		}
+		if(session.getAttribute(Constant.MSG_SUCCESS) != null) {
+			model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
+			session.removeAttribute(Constant.MSG_SUCCESS);
+		}
+		
+		return "orders/lich-tour";
+	}
 }

@@ -89,6 +89,17 @@ public class HomeController {
 	public String trangChu(HttpSession session, ModelMap map) {
 		List<Product> productList = productRepo.findNew6Product();
 		map.addAttribute("products", productList);
+		
+		if(session.getAttribute(Constant.MSG_ERROR) != null) {
+			map.addAttribute(Constant.MSG_ERROR, session.getAttribute(Constant.MSG_ERROR));
+			session.removeAttribute(Constant.MSG_ERROR);
+		}
+		if(session.getAttribute(Constant.MSG_SUCCESS) != null) {
+			map.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
+			session.removeAttribute(Constant.MSG_SUCCESS);
+		}
+		
+		
 		return "client/index";
 	}
 	

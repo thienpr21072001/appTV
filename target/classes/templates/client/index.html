@@ -904,8 +904,18 @@
     type='text/css' media='' />
     <script type='text/javascript'
 		src="../content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5"></script>
-	<script type='text/javascript' src="../includes/js/hoverIntent.minc245.js?ver=1.8.1"></script>
+	<script type='text/javascript' th:src="@{/includes/js/hoverIntent.minc245.js?ver=1.8.1}"></script>
 	<script type='text/javascript'>
+	var msgError = '[[${msgError}]]';
+	var msgSuccess = '[[${msgSuccess}]]';
+ 	if(msgError){
+ 		alert(msgError)
+ 	}
+ 	
+ 	if(msgSuccess){
+ 		alert(msgSuccess)
+ 	}
+	
 		var flatsomeVars = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "rtl": "", "sticky_height": "70" };
 	</script>
 	<script type='text/javascript' src="../content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0"></script>

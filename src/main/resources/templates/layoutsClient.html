@@ -209,6 +209,11 @@
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
                     th:href="@{/thoat}" class="menu-image-title-after nav-top-link"><span
                       class="menu-image-title" >Thoát</span></a></li>
+                      
+              <li id="menu-item-1115" th:if="${session.userInfo != null}"
+                  class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
+                    th:href="@{/orders/lich-tour}" class="menu-image-title-after nav-top-link"><span
+                      class="menu-image-title" >Lịch tour</span></a></li>
               </ul>
             </div>
             <!-- Mobile Right Elements -->
