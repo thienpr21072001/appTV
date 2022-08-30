@@ -20,7 +20,7 @@ public class AppConfig {
         FilterRegistrationBean<RequestFilter> registrationBean
                 = new FilterRegistrationBean<>();
         registrationBean.setFilter(new RequestFilter());
-        registrationBean.addUrlPatterns("/users/*");
+        registrationBean.addUrlPatterns("/users/*", "/orders/*", "/products/*");
         return registrationBean;
     }
 }
