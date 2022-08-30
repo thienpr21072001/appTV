@@ -28,7 +28,8 @@ public class ProductValidator implements Validator{
 		ValidationUtils.rejectIfEmpty(errors, "name", "error.required");
 		ValidationUtils.rejectIfEmpty(errors, "price", "error.required");
 		ValidationUtils.rejectIfEmpty(errors, "numberDay", "error.required");
-		
+		ValidationUtils.rejectIfEmpty(errors, "dateStart", "error.required");
+		 
 		Product products = (Product) target;
 		
 		if(products != null) {

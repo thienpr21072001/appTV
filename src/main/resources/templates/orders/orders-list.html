@@ -134,7 +134,7 @@
                         	<td th:text=${item.phone}/>
                         	<td th:text=${item.products.name}/>
                         	<td th:text=${item.price}/>
-                        	<td th:text=${item.date}  />
+                        	<td th:text=${item.products.dateStart}  />
                         	<td th:text=${item.products.provinceText}  />
                         	<th:block th:if="${item.approvedStep == 0}">
                         		<td  > Đang xử lý  </td>

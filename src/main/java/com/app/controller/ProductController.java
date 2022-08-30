@@ -136,6 +136,7 @@ public class ProductController {
 			}
 		}else {
 			try {
+		 
 				productService.createProduct(products);
 				session.setAttribute(Constant.MSG_SUCCESS, "Thêm thành công");
 			} catch (Exception e) {

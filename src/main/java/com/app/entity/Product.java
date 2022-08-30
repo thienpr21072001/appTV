@@ -2,6 +2,7 @@ package com.app.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -34,6 +36,9 @@ public class Product implements  Serializable{
 	private Date updateDate;
 	@Transient
 	private MultipartFile multipartFile;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private LocalDateTime dateStart;
 	
 	private int numberDay;
 	
@@ -111,6 +116,12 @@ public class Product implements  Serializable{
 	}
 	public void setNumberDay(int numberDay) {
 		this.numberDay = numberDay;
+	}
+	public LocalDateTime getDateStart() {
+		return dateStart;
+	}
+	public void setDateStart(LocalDateTime dateStart) {
+		this.dateStart = dateStart;
 	}
  
 	 
