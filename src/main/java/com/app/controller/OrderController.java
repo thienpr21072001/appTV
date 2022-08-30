@@ -82,9 +82,6 @@ public class OrderController {
 		return "orders/orders-list";
 	}
  
- 
- 
-	
 	@GetMapping("/delete/{id}")
 	public String delete(ModelMap map,@PathVariable("id")long id, HttpSession session) {
 		Orders orders = orderService.getById(id);

@@ -26,12 +26,14 @@ import com.app.entity.Contact;
 import com.app.entity.Orders;
 import com.app.entity.Product;
 import com.app.entity.User;
+import com.app.exception.ResourceNotFoundException;
 import com.app.model.LoginRequest;
 import com.app.model.PagingSearchFilterOrder;
 import com.app.repository.ProductRepository;
 import com.app.service.OrderService;
 import com.app.service.ProductService;
 import com.app.service.UserService;
+import com.app.utils.ApprovedStep;
 import com.app.utils.Constant;
 import com.app.validator.LoginValidator;
  
@@ -201,4 +203,24 @@ public class HomeController {
 		
 		return "client/lich-tour-i";
 	}
+	
+	@GetMapping("/lich-tour/cancel/{id}")
+	public String cancel(ModelMap map,@PathVariable("id") long id, HttpSession session) {
+		Orders orders = orderService.getById(id);
+		if(orders == null) {
+			throw new ResourceNotFoundException("orders not found with id :" + id);
+		}
+		try {
+			orders.setApprovedStep(ApprovedStep.CANCEL.getValue());
+			orderService.updateOrder(orders);
+			session.setAttribute(Constant.MSG_SUCCESS, "Huỷ thành công");
+		} catch (Exception e) {
+			// TODO: handle exception
+			 
+			session.setAttribute(Constant.MSG_ERROR, "Huỷ thất bại");
+		}
+		return "redirect:/lich-tour/1";
+	}
+	
+ 
 }

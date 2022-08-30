@@ -28,6 +28,7 @@
 							      <th scope="col">Giá</th>
 							      <th scope="col">Ngày đặt</th>
 							      <th scope="col">Trạng thái</th>
+							      <th scope="col">+</th>
 							    </tr>
 							  </thead>
 							  <tbody>
@@ -44,6 +45,13 @@
 		                        <th:block th:if="${item.approvedStep == 2}">
 		                        		<td  > Đã huỷ</td>
 		                        </th:block>
+		                        
+		                        <th:block th:if="${item.approvedStep == 0}">
+                        				<td  >
+                  
+                        				 <a style="border: 1px solid;background-color: red;color: white;" href="javascript:void(0)" th:onclick="cancelItem([[${item.id}]])"  > Hủy</a>
+                        				</td>
+                        		</th:block>
 							    </tr>
 							   
 							  </tbody>
@@ -92,6 +100,21 @@
 			$("#searchForm").submit();
 		}
 		
+		var msgError = '[[${msgError}]]';
+		var msgSuccess = '[[${msgSuccess}]]';
+	 	if(msgError){
+	 		alert(msgError)
+	 	}
+	 	
+	 	if(msgSuccess){
+	 		alert(msgSuccess)
+	 	}
+		
+		function cancelItem(id){
+			if(confirm("Bạn có chắc chắn huỷ nó không ?")){
+				location.href="/lich-tour/cancel/"+id;
+			}
+		}
 		
 			var flatsomeVars = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "rtl": "", "sticky_height": "70" };
 		</script>
