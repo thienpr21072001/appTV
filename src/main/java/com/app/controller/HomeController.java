@@ -82,7 +82,7 @@ public class HomeController {
 			return "login/login";
 		}
 		User user = userService.getByName(loginRequest.getUsername());
-		if(user.getRole() == 2) {
+		if(user != null && user.getRole() == 2) {
 			return "redirect:/dang-nhap";
 		}
 		session.setAttribute(Constant.USER_INFO, user.getUsername());
@@ -135,7 +135,7 @@ public class HomeController {
 		}
  
 		User user = userService.getByName(loginRequest.getUsername());
-		if(user.getRole() == 1) {
+		if(user != null && user.getRole() == 1) {
 			return "redirect:/login";
 		}
 		session.setAttribute(Constant.USER_INFO, user.getUsername());
