@@ -139,7 +139,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Ngày khởi hành<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input th:field="*{dateStart}"  name="dateStart" class="form-control" placeholder="Ngày khởi hành..." type="date" th:readonly="${viewOnly == true}" />														
+												<input th:field="*{dateStart}"  name="dateStart" class="form-control" placeholder="Ngày khởi hành..." type="datetime-local" th:readonly="${viewOnly == true}" />														
 												<div class="has-error">
 													<span style="color: red" th:if="${#fields.hasErrors('dateStart')}" th:errors="*{dateStart}" ></span>
 												</div>

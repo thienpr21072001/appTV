@@ -26,7 +26,7 @@
 							       
 							      <th scope="col">Tên tour</th>
 							      <th scope="col">Giá</th>
-							      <th scope="col">Ngày đặt</th>
+							      <th scope="col">Ngày khởi hành</th>
 							      <th scope="col">Trạng thái</th>
 							      <th scope="col">+</th>
 							    </tr>
@@ -35,7 +35,7 @@
 							    <tr  th:each="item : ${pageProduct.getContent()}">
 							      <td th:text=${item.products.name}> </td>
 							      <td th:text=${item.products.price}> </td>
-							      <td th:text=${item.date}></td>
+							      <td th:text=${item.products.dateStart}></td>
 							      <th:block th:if="${item.approvedStep == 0}">
                         				<td  > Đang xử lý  </td>
                         		</th:block>
