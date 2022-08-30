@@ -14,16 +14,19 @@ import org.springframework.data.jpa.domain.Specification;
 
 import com.app.entity.Orders;
 import com.app.entity.Product;
+import com.app.entity.User;
 
 public class OrderSpecification implements Specification<Orders>{
 	private final String searchKey;
 	private final Integer provinceId;
 	private final Integer approvedStep;
+	private final Long userId;
 
-	public OrderSpecification(String searchKey, Integer provinceId, Integer approvedStep) {
+	public OrderSpecification(String searchKey, Integer provinceId, Integer approvedStep,  Long userId) {
 		this.searchKey = searchKey;
 		this.provinceId = provinceId;
 		this.approvedStep = approvedStep;
+		this.userId = userId;
 	}
 
 	@Override
@@ -43,6 +46,11 @@ public class OrderSpecification implements Specification<Orders>{
 			predicates.add(preApprovedStep);
 		}
  
+		if(userId != null) {
+			Join<User, User> userInnner  =  root.join("user", JoinType.INNER); //entity
+			Predicate preUser = criteriaBuilder.equal(userInnner.get("id"), userId);
+			predicates.add(preUser);
+		}
 		
 		return criteriaBuilder.and(predicates.toArray(new Predicate[] {}));
 	}
@@ -59,6 +67,10 @@ public class OrderSpecification implements Specification<Orders>{
 
 	public Integer getApprovedStep() {
 		return approvedStep;
+	}
+
+	public Long getUserId() {
+		return userId;
 	}
  
 

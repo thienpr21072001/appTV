@@ -5,6 +5,7 @@ public class PagingSearchFilterOrder {
 	private String keyword ;
 	private Integer provinceId;
 	private Integer approvedStep;
+	private Long userId;
 	 
 	 
 	private int pageSize = 5;
@@ -75,6 +76,18 @@ public class PagingSearchFilterOrder {
 
 	public void setApprovedStep(Integer approvedStep) {
 		this.approvedStep = approvedStep;
+	}
+
+
+
+	public Long getUserId() {
+		return userId;
+	}
+
+
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
  
 	

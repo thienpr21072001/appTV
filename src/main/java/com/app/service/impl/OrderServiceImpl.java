@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public Page<Orders> getAll(PagingSearchFilterOrder psfp) {
 		// TODO Auto-generated method stub
-		return userRepo.findAll(new OrderSpecification(psfp.getKeyword(), psfp.getProvinceId(), psfp.getApprovedStep()), PageRequest.of(psfp.getPage(), psfp.getPageSize()));
+		return userRepo.findAll(new OrderSpecification(psfp.getKeyword(), psfp.getProvinceId(), psfp.getApprovedStep(), psfp.getUserId()), PageRequest.of(psfp.getPage(), psfp.getPageSize()));
 	}
 	 
 }

@@ -184,8 +184,12 @@ public class OrderController {
 	
 	@RequestMapping("/lich-tour/{page}")
 	public String lichTour(Model model,  HttpSession session, @PathVariable("page") int page) {
+		User user = (User) session.getAttribute(Constant.USER_INFO);
+		
 		PagingSearchFilterOrder searchForm = new PagingSearchFilterOrder();
 		searchForm.setPage(page);
+		searchForm.setUserId(user.getId());
+		
 		Page<Orders> pageProduct = orderService.getAll(searchForm);
 		model.addAttribute("searchForm", searchForm);
 		model.addAttribute("pageProduct",pageProduct);
