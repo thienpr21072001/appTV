@@ -129,28 +129,27 @@
                         </thead>
                         <tbody>
 							<tr th:each="item : ${pageProduct.getContent()}">
-                            <td th:text=${item.id}/>
-                             <td>
-						      	<img alt="" th:src="@{ ${item.images}}" width="80px" height="80px">
-						      </td>           
+                            <td th:text=${item.id}/>       
                         	<td th:text=${item.name}/>
                         	<td th:text=${item.phone}/>
                         	<td th:text=${item.products.name}/>
                         	<td th:text=${item.price}/>
                         	<td th:text=${item.date}  />
                         	<td th:text=${item.products.provinceText}  />
-                        	<th:block th:if="${approvedStep == 0}">
+                        	<th:block th:if="${item.approvedStep == 0}">
                         		<td  > Đang xử lý  </td>
                         	</th:block>
-                        	<th:block th:if="${approvedStep == 1}">
+                        	<th:block th:if="${item.approvedStep == 1}">
                         		<td> Đã duyệt </td>
                         	</th:block>
-                        	 <th:block th:if="${approvedStep == 2}">
+                        	 <th:block th:if="${item.approvedStep == 2}">
                         		<td  > Đã huỷ</td>
                         	</th:block>
-                            <td colspan="3" class="last text-center">                 
-	                            <a href="javascript:void(0)" th:onclick="cancelItem([[${item.id}]])" class="btn btn-danger btn-delete"><i class="glyphicon glyphicon-edit"></i></a> 
-	                            <a href="javascript:void(0)" th:onclick="completeItem([[${item.id}]])" class="btn btn-danger btn-delete"><i class="glyphicon glyphicon-trash"></i></a> 
+                            <td colspan="3" class="last text-center">       
+                            <th:block th:if="${item.approvedStep == 0}">          
+	                            <a href="javascript:void(0)" th:onclick="completeItem([[${item.id}]])" class="btn btn-success btn-delete"><i class="glyphicon glyphicon-edit"></i></a> 
+	                            <a href="javascript:void(0)" th:onclick="cancelItem([[${item.id}]])" class="btn btn-danger btn-delete"><i class="glyphicon glyphicon-trash"></i></a> 
+	                            </th:block>
                             </td>                  
                           	</tr>
                      					

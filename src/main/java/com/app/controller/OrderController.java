@@ -96,7 +96,7 @@ public class OrderController {
 			log.warn("delete faild  :"+ e.getMessage());
 			session.setAttribute(Constant.MSG_ERROR, "Xóa thất bại");
 		}
-		return "redirect:/orderss/list/1";
+		return "redirect:/orders/list/1";
 	}
 	
 	@GetMapping("/cancel/{id}")
@@ -114,7 +114,7 @@ public class OrderController {
 			log.warn("delete faild  :"+ e.getMessage());
 			session.setAttribute(Constant.MSG_ERROR, "Huỷ thất bại");
 		}
-		return "redirect:/orderss/list/1";
+		return "redirect:/orders/list/1";
 	}
 	
 	@GetMapping("/complete/{id}")
@@ -132,7 +132,7 @@ public class OrderController {
 			log.warn("delete faild  :"+ e.getMessage());
 			session.setAttribute(Constant.MSG_ERROR, "Duyệt thất bại");
 		}
-		return "redirect:/orderss/list/1";
+		return "redirect:/orders/list/1";
 	}
 	
 	@PostMapping("/save")
@@ -145,8 +145,9 @@ public class OrderController {
 			return "client/thanh-toan";
 		}
 		try {
+			Product product = productService.getById(orderss.getProducts().getId());
 			orderss.setApprovedStep(ApprovedStep.IN_PROGRESS.getValue());
-			orderss.setPrice(orderss.getProducts().getPrice());
+			orderss.setPrice(product.getPrice());
 			orderss.setDate(new Date());
 			String username = (String) session.getAttribute(Constant.USER_INFO);
 			User user = userService.getByName(username);
