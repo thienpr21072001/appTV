@@ -81,23 +81,23 @@ public class OrderController {
 		
 		return "orders/orders-list";
 	}
- 
-	@GetMapping("/delete/{id}")
-	public String delete(ModelMap map,@PathVariable("id")long id, HttpSession session) {
-		Orders orders = orderService.getById(id);
-		if(orders == null) {
-			throw new ResourceNotFoundException("orders not found with id :" + id);
-		}
-		try {
-			orderService.deleteOrder(orders);
-			session.setAttribute(Constant.MSG_SUCCESS, "Xóa thành công");
-		} catch (Exception e) {
-			// TODO: handle exception
-			log.warn("delete faild  :"+ e.getMessage());
-			session.setAttribute(Constant.MSG_ERROR, "Xóa thất bại");
-		}
-		return "redirect:/orders/list/1";
-	}
+// 
+//	@GetMapping("/delete/{id}")
+//	public String delete(ModelMap map,@PathVariable("id")long id, HttpSession session) {
+//		Orders orders = orderService.getById(id);
+//		if(orders == null) {
+//			throw new ResourceNotFoundException("orders not found with id :" + id);
+//		}
+//		try {
+//			orderService.deleteOrder(orders);
+//			session.setAttribute(Constant.MSG_SUCCESS, "Xóa thành công");
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			log.warn("delete faild  :"+ e.getMessage());
+//			session.setAttribute(Constant.MSG_ERROR, "Xóa thất bại");
+//		}
+//		return "redirect:/orders/list/1";
+//	}
 	
 	@GetMapping("/cancel/{id}")
 	public String cancel(ModelMap map,@PathVariable("id")long id, HttpSession session) {

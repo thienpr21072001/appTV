@@ -35,7 +35,7 @@
 							  <tbody>
 							    <tr  th:each="item : ${pageProduct.getContent()}">
 							      <td th:text=${item.products.name}> </td>
-							      <td th:text=${item.products.price}> <span>đ</span></td>
+							      <td th:text="@{${item.products.price} + ' đ'}" > <span>đ</span></td>
 							      <td th:text=${item.products.dateStart}></td>
 							      <td th:text=${item.products.numberDay}></td>
 							      <th:block th:if="${item.approvedStep == 0}">
