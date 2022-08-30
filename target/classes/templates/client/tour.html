@@ -55,7 +55,7 @@
 											alt=""
 											sizes="(max-width: 300px) 100vw, 300px" /> <span class="product-title" th:text="${item.name}"> </span>
 									</a>
-									<span class="woocommerce-Price-amount amount" th:text="${item.price}"><span
+									<span class="woocommerce-Price-amount amount" th:text="@{${item.price} + ' đ'}">  <span
 											class="woocommerce-Price-currencySymbol">&#8363;</span></span>
 								</li>
  
@@ -110,7 +110,7 @@
 												</div>
 												<div class="price-wrapper">
 													<span class="price"><span
-															class="woocommerce-Price-amount amount" th:text="${item.price}"> <span
+															class="woocommerce-Price-amount amount" th:text="@{${item.price} + ' đ'}"> <span
 																class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>
 												</div>
 											</div>
