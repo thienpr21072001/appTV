@@ -1,5 +1,7 @@
 package com.app.validator;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -46,6 +48,10 @@ public class ProductValidator implements Validator{
 			}
 			if(products.getNumberDay() <=0) {
 				errors.rejectValue("numberDay", "error.format");
+			}
+			
+			if(products.getPrice().compareTo(new BigDecimal(0)) <= 0) {
+				errors.rejectValue("price", "error.format");
 			}
 			
 //			if(products.getCategory() != null) {
