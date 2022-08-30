@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi" class="loading-site no-js">
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head th:replace="layoutsClient::head">
+ 
+</head>
+   <body class="page-template-default page page-id-29 woocommerce-account woocommerce-page lightbox nav-dropdown-has-arrow">
+      <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+      <div id="wrapper">
+        <header  th:replace="layoutsClient::header" id="header" class="header has-sticky sticky-jump">
+		 
+		</header>
+		<div style="margin-bottom: 50px"></div>
+         <main id="main" class="">
+            <div id="content" class="content-area page-wrapper" role="main">
+               <div class="row row-main">
+                  <div class="large-12 col">
+                     <div class="col-inner">
+                        <div class="woocommerce">
+                           <div class="account-container lightbox-inner">
+                              <div class="account-login-inner">
+                                 <h3 class="uppercase">Các loại tour đã đặt </h3>
+                             <table class="table">
+							  <thead>
+							    <tr>
+							       
+							      <th scope="col">Tên tour</th>
+							      <th scope="col">Giá</th>
+							      <th scope="col">Ngày đặt</th>
+							      <th scope="col">Trạng thái</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr  th:each="item : ${pageProduct.getContent()}">
+							      <td th:text=${item.products.name}> </td>
+							      <td th:text=${item.products.price}> </td>
+							      <td th:text=${item.date}></td>
+							      <th:block th:if="${item.approvedStep == 0}">
+                        				<td  > Đang xử lý  </td>
+                        		</th:block>
+		                        <th:block th:if="${item.approvedStep == 1}">
+		                        		<td> Đã duyệt </td>
+		                        </th:block>
+		                        <th:block th:if="${item.approvedStep == 2}">
+		                        		<td  > Đã huỷ</td>
+		                        </th:block>
+							    </tr>
+							   
+							  </tbody>
+							</table>
+							<ul   class="page-numbers nav-pagination links text-center"> 
+						             	 	<th:block th:if="${pageProduct.getTotalElements() > 0 }">
+												<th:block th:each="i : ${#numbers.sequence(1, pageProduct.getTotalPages() )}">    
+													<li th:if="${i == pageProduct.getNumber() + 1}"  class="page-number current" style="background-color: yellow">
+														  <a href="javascript:void(0)" th:text="${i}"/>
+													</li>
+													<li th:unless="${i == pageProduct.getNumber() + 1}" class="page-number">
+														   <a  th:onclick="gotoPage([[${i}]])" th:text="${i}"/>
+													 </li>
+												</th:block>
+											</th:block>       
+						              </ul>
+                              </div>
+                              <!-- .login-inner -->
+                           </div>
+                           <!-- .account-login-container -->
+                        </div>
+                        <div data-slug="" class="wpf-search-container"></div>
+                     </div>
+                     <!-- .col-inner -->
+                  </div>
+                  <!-- .large-12 -->
+               </div>
+               <!-- .row -->
+            </div>
+         </main>
+         <!-- #main -->
+  		     <footer th:replace="layoutsClient::footer" id="footer" class="footer-wrapper">
+       
+    		</footer>
+         <!-- .footer-wrapper -->
+      </div>
+      <!-- #wrapper -->
+      <!-- Mobile Sidebar -->
+   		<div style="margin-bottom :50px "></div>
+ 
+	  <script type='text/javascript' th:src="@{/content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5}"></script>
+		<script type='text/javascript' th:src="@{/includes/js/hoverIntent.minc245.js?ver=1.8.1}"></script>
+		<script type='text/javascript'>
+		function gotoPage(page){
+			$("#searchForm").attr('action',"/lich-tour/"+page);
+			$("#searchForm").submit();
+		}
+		
+		
+			var flatsomeVars = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "rtl": "", "sticky_height": "70" };
+		</script>
+		<script type='text/javascript' th:src="@{/content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0}"></script>
+   </body>
+</html>

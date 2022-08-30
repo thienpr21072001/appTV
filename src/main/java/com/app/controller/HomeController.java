@@ -8,7 +8,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -16,13 +18,19 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.entity.Contact;
+import com.app.entity.Orders;
 import com.app.entity.Product;
 import com.app.entity.User;
 import com.app.model.LoginRequest;
+import com.app.model.PagingSearchFilterOrder;
 import com.app.repository.ProductRepository;
+import com.app.service.OrderService;
+import com.app.service.ProductService;
 import com.app.service.UserService;
 import com.app.utils.Constant;
 import com.app.validator.LoginValidator;
@@ -38,6 +46,9 @@ public class HomeController {
 	
 	@Autowired
 	LoginValidator loginValidator;
+	
+	@Autowired
+	ProductService productService;
 	 
 	@InitBinder
 	public void dataBinder(WebDataBinder binder) {
@@ -142,5 +153,52 @@ public class HomeController {
 		 
 		map.addAttribute("submitForm", new Contact());
 		return "client/lien-he";
+	}
+	
+	@Autowired
+	OrderService orderService;
+	 
+	
+	@GetMapping("/thanh-toan/{id}")
+	public String news(Model map, HttpSession session, @PathVariable("id") Long id) {
+ 
+		String username = (String) session.getAttribute(Constant.USER_INFO);
+		User user = userService.getByName(username);
+		if(user == null || user.getRole() == 1) {
+			return "redirect:/dang-nhap";
+		}
+		Product product = productService.getById(id);
+		Orders orders = new Orders();
+		orders.setProducts(product);
+		map.addAttribute("submitForm", orders);
+		map.addAttribute("viewOnly", false);
+		 
+		map.addAttribute("product", product);
+		
+		return "client/thanh-toan";
+	}
+	
+	@RequestMapping("/lich-tour/{page}")
+	public String lichTour(Model model,  HttpSession session, @PathVariable("page") int page) {
+		String username = (String) session.getAttribute(Constant.USER_INFO);
+		User user = userService.getByName(username);
+		PagingSearchFilterOrder searchForm = new PagingSearchFilterOrder();
+		searchForm.setPage(page);
+		searchForm.setUserId(user.getId());
+		
+		Page<Orders> pageProduct = orderService.getAll(searchForm);
+		model.addAttribute("searchForm", searchForm);
+		model.addAttribute("pageProduct",pageProduct);
+ 
+		if(session.getAttribute(Constant.MSG_ERROR) != null) {
+			model.addAttribute(Constant.MSG_ERROR, session.getAttribute(Constant.MSG_ERROR));
+			session.removeAttribute(Constant.MSG_ERROR);
+		}
+		if(session.getAttribute(Constant.MSG_SUCCESS) != null) {
+			model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
+			session.removeAttribute(Constant.MSG_SUCCESS);
+		}
+		
+		return "client/lich-tour-i";
 	}
 }

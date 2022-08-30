@@ -198,7 +198,7 @@
  
                 <li id="menu-item-1115"
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
-                    href="lien-he" class="menu-image-title-after nav-top-link"><span
+                    th:href="@{/lien-he}" class="menu-image-title-after nav-top-link"><span
                       class="menu-image-title" >Liên hệ</span></a></li>
                	<li id="menu-item-1115" th:if="${session.userInfo == null}"
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
@@ -209,6 +209,11 @@
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
                     th:href="@{/thoat}" class="menu-image-title-after nav-top-link"><span
                       class="menu-image-title" >Thoát</span></a></li>
+                      
+              <li id="menu-item-1115" th:if="${session.userInfo != null}"
+                  class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
+                    th:href="@{/lich-tour/1}" class="menu-image-title-after nav-top-link"><span
+                      class="menu-image-title" >Lịch tour</span></a></li>
               </ul>
             </div>
             <!-- Mobile Right Elements -->
@@ -3761,11 +3766,11 @@
     href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css?ver=1.1.5'
     type='text/css' media='' />
     <script type='text/javascript'
-		src="../content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5"></script>
+		th:src="@{/content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5}"></script>
 	<script type='text/javascript' th:src="@{/includes/js/hoverIntent.minc245.js?ver=1.8.1}"></script>
 	<script type='text/javascript'>
 		var flatsomeVars = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "rtl": "", "sticky_height": "70" };
 	</script>
-	<script type='text/javascript' src="@{/content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0}"></script>
+	<script type='text/javascript' th:src="@{/content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0}"></script>
 </body>
 </html>

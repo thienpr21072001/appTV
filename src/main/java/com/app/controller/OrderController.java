@@ -82,24 +82,7 @@ public class OrderController {
 		return "orders/orders-list";
 	}
  
-	@GetMapping("/add/{id}")
-	public String news(Model map, HttpSession session, @PathVariable("id") Long id) {
  
-		String username = (String) session.getAttribute(Constant.USER_INFO);
-		User user = userService.getByName(username);
-		if(user == null || user.getRole() == 1) {
-			return "redirect:/dang-nhap";
-		}
-		Product product = productService.getById(id);
-		Orders orders = new Orders();
-		orders.setProducts(product);
-		map.addAttribute("submitForm", orders);
-		map.addAttribute("viewOnly", false);
-		 
-		map.addAttribute("product", product);
-		
-		return "client/thanh-toan";
-	}
  
 	
 	@GetMapping("/delete/{id}")
@@ -182,27 +165,5 @@ public class OrderController {
 	}
  
 	
-	@RequestMapping("/lich-tour/{page}")
-	public String lichTour(Model model,  HttpSession session, @PathVariable("page") int page) {
-		User user = (User) session.getAttribute(Constant.USER_INFO);
-		
-		PagingSearchFilterOrder searchForm = new PagingSearchFilterOrder();
-		searchForm.setPage(page);
-		searchForm.setUserId(user.getId());
-		
-		Page<Orders> pageProduct = orderService.getAll(searchForm);
-		model.addAttribute("searchForm", searchForm);
-		model.addAttribute("pageProduct",pageProduct);
  
-		if(session.getAttribute(Constant.MSG_ERROR) != null) {
-			model.addAttribute(Constant.MSG_ERROR, session.getAttribute(Constant.MSG_ERROR));
-			session.removeAttribute(Constant.MSG_ERROR);
-		}
-		if(session.getAttribute(Constant.MSG_SUCCESS) != null) {
-			model.addAttribute(Constant.MSG_SUCCESS, session.getAttribute(Constant.MSG_SUCCESS));
-			session.removeAttribute(Constant.MSG_SUCCESS);
-		}
-		
-		return "orders/lich-tour";
-	}
 }
