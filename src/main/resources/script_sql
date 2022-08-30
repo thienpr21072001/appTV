@@ -1,0 +1,206 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th8 30, 2022 lúc 07:51 PM
+-- Phiên bản máy phục vụ: 10.4.21-MariaDB
+-- Phiên bản PHP: 7.4.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `AppTV`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` bigint(20) NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `create_date` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `update_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `contact`
+--
+
+INSERT INTO `contact` (`id`, `content`, `create_date`, `email`, `name`, `status`, `update_date`) VALUES
+(1, 'Du lich\r\n', '2022-08-29', 'student01@gmail.com', 'Nguyen Tam', 1, '2022-08-29');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) NOT NULL,
+  `create_date` date DEFAULT NULL,
+  `update_date` date DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `price` decimal(19,2) DEFAULT NULL,
+  `product_id` bigint(20) DEFAULT NULL,
+  `approved_step` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `create_date`, `update_date`, `user_id`, `status`, `address`, `date`, `name`, `phone`, `price`, `product_id`, `approved_step`) VALUES
+(1, '2022-08-31', '2022-08-31', 7, 1, 'KPYPYY', '2022-08-31 00:46:32', 'Nguyen Tam', '022222', '1000.00', 21, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product`
+--
+
+CREATE TABLE `product` (
+  `id` bigint(20) NOT NULL,
+  `create_date` date DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` decimal(19,2) DEFAULT NULL,
+  `update_date` date DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL,
+  `province_text` varchar(255) DEFAULT NULL,
+  `number_day` int(11) NOT NULL,
+  `date_start` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`id`, `create_date`, `description`, `images`, `name`, `price`, `update_date`, `status`, `province_id`, `province_text`, `number_day`, `date_start`) VALUES
+(21, '2022-08-31', 'Du Lịch Miền Bắc – Đến Sapa những ngày tết Nguyên Đán 2018, du khách được tận hưởng cái lạnh của mùa đông.', '/upload/1661881250995dalat-300x300.jpeg', 'Du Lịch Miền Bắc – Sapa – Fansipan 5 ngày tết nguyên đán Mậu Tuất 2018', '1000.00', '2022-08-31', 1, 1, 'Hà nội', 5, '2022-08-31 00:40:00'),
+(22, '2022-08-31', 'Du Lịch Miền Bắc – Đến Sapa những ngày tết Nguyên Đán 2018, du khách được tận hưởng cái lạnh của mùa đông', '/upload/1661881296291HaLong-300x300.jpeg', 'Du Lịch Miền Bắc – Sapa – Fansipan 5 ngày tết nguyên đán Mậu Tuất 2019', '1500.00', '2022-08-31', 1, 1, 'Hà nội', 5, '2022-09-01 00:41:00'),
+(23, '2022-08-31', 'Đặt phòng khách sạn Victoria Phan Thiet Beach Resort – Victoria Phan Thiết Beach Resort & Spa gồm 57 bungalows được thiết kế theo phong cách những ngôi nhà mái tranh mộc mạc ở miền quê ẩn mình trong khu vườn nhiệt đới quyến rũ.', '/upload/1661881384419dat-phong-khach-san-grand-ho-tram-gia-re_du-lich-viet_0-300x300.png', 'Beach Resort Phan Thiết Khuyến Mãi Mùa Đông', '150.00', '2022-08-31', 1, 11, 'Phan thiết', 2, '2022-09-03 00:43:00'),
+(24, '2022-08-31', 'Đặt phòng khách sạn Victoria Phan Thiet Beach Resort – Victoria Phan Thiết Beach Resort & Spa gồm 57 bungalows được thiết kế theo phong cách những ngôi nhà mái tranh mộc mạc ở miền quê ẩn mình trong khu vườn nhiệt đới quyến rũ.', '/upload/1661881422906offers_slide_1-300x300.jpeg', 'Beach Resort Phan Thiết Khuyến Mãi Mùa Đông 01', '2222.00', '2022-08-31', 1, 1, 'Hà nội', 6, '2022-09-03 00:43:00'),
+(25, '2022-08-31', 'Côn Đảo được du khách trong và ngoài nước biết đến là 1 trong 10 hòn đảo quyến rũ nhất hành tinh, với núi non hùng vĩ, thiên nhiên hoang sơ tràn ngập hương vị của biển.', '/upload/1661881452116offers_slide_2-300x300.jpeg', 'Du Lịch Côn Đảo 2 ngày 1 đêm bay từ Sài Gòn', '5555.00', '2022-08-31', 1, 1, 'Hà nội', 6, '2022-09-11 00:44:00'),
+(26, '2022-08-31', 'Du lịch Phú Quốc là hành trình đến với thiên nhiên hoang sơ và hơn hết là để chinh phục vùng đất tận cùng xa xôi của đất nước. Những bãi biển trong xanh trải dài khiến Phú Quốc trở thành điểm đến đầy mê hoặc đối với mỗi du khách đặt chân đến đây', '/upload/1661881481840sea_tour_img_1-300x300.jpeg', ' Du Lịch Phú Quốc – Nam Đảo 3 ngày 2 đêm dịp Noel & Tết Dương Lịch 2018', '77777.00', '2022-08-31', 1, 1, 'Hà nội', 7, '2022-09-04 00:44:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `user`
+--
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `role` int(11) NOT NULL,
+  `create_date` date DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `update_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `password`, `phone`, `username`, `role`, `create_date`, `status`, `update_date`) VALUES
+(5, 'admin@gmail.com', '12345', '0222222', 'admin', 1, NULL, 1, NULL),
+(7, 'user@gmail.com', '12345', '232323', 'user', 2, '2022-08-29', 1, '2022-08-29');
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKel9kyl84ego2otj2accfd8mr7` (`user_id`),
+  ADD KEY `FK787ibr3guwp6xobrpbofnv7le` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT cho bảng `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `FK787ibr3guwp6xobrpbofnv7le` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `FKel9kyl84ego2otj2accfd8mr7` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
