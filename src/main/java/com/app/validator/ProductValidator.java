@@ -44,6 +44,10 @@ public class ProductValidator implements Validator{
 //					errors.rejectValue("name", "error.format");
 //				}
 			}
+			if(products.getNumberDay() <=0) {
+				errors.rejectValue("numberDay", "error.format");
+			}
+			
 //			if(products.getCategory() != null) {
 //				if(products.getCategory().getId() ==  0) {
 //					errors.rejectValue("category", "error.required");
