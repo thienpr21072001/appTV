@@ -205,6 +205,11 @@
                     th:href="@{/dang-nhap}" class="menu-image-title-after nav-top-link"><span
                       class="menu-image-title" >Đăng nhập</span></a></li>
                       
+                  <li id="menu-item-1115" th:if="${session.userInfo == null}"
+                  class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
+                    th:href="@{/dang-ky}" class="menu-image-title-after nav-top-link"><span
+                      class="menu-image-title" >Đăng ký</span></a></li>
+                      
                 <li id="menu-item-1115" th:if="${session.userInfo != null}"
                   class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-1115"><a
                     th:href="@{/thoat}" class="menu-image-title-after nav-top-link"><span

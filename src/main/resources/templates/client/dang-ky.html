@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi" class="loading-site no-js">
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head th:replace="layoutsClient::head">
+ 
+</head>
+   <body class="page-template-default page page-id-29 woocommerce-account woocommerce-page lightbox nav-dropdown-has-arrow">
+      <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+      <div id="wrapper">
+        <header  th:replace="layoutsClient::header" id="header" class="header has-sticky sticky-jump">
+		 
+		</header>
+         <main id="main" class="">
+            <div id="content" class="content-area page-wrapper" role="main">
+               <div class="row row-main">
+                  <div class="large-12 col">
+                     <div class="col-inner">
+                        <div class="woocommerce">
+                           <div class="account-container lightbox-inner">
+                              <div class="account-login-inner">
+                                 <h3 class="uppercase">Đăng ký</h3>
+                                 <form th:action="@{/dang-ky/save}" method="POST" th:object="${submitForm}" class="woocommerce-form woocommerce-form-login login" >
+                                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                       <label for="username">Tên tài khoản  <span class="required">*</span></label>
+                                       <input th:field="*{username}" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="" />				
+                                    </p>
+                                      <div class="has-error">
+					         		 	<span style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" ></span>
+					         		  </div>
+                                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                       <label for="password">Mật khẩu <span class="required">*</span></label>
+                                       <input th:field="*{password}" class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
+                                    </p>
+                                    <div class="has-error">
+					         			 <span style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>     		
+					         		</div>
+                                    <p class="form-row">
+                                    	<button type="submit" class="woocommerce-Button button" name="login" value="Đăng ky">Đăng ký</button>
+                                    </p>
+                                     
+                                 </form>
+                              </div>
+                              <!-- .login-inner -->
+                           </div>
+                           <!-- .account-login-container -->
+                        </div>
+                        <div data-slug="" class="wpf-search-container"></div>
+                     </div>
+                     <!-- .col-inner -->
+                  </div>
+                  <!-- .large-12 -->
+               </div>
+               <!-- .row -->
+            </div>
+         </main>
+         <!-- #main -->
+  		     <footer th:replace="layoutsClient::footer" id="footer" class="footer-wrapper">
+       
+    		</footer>
+         <!-- .footer-wrapper -->
+      </div>
+      <!-- #wrapper -->
+      <!-- Mobile Sidebar -->
+   		<div style="margin-bottom :50px "></div>
+      <!-- #mobile-menu -->
+      <div id="login-form-popup" class="lightbox-content mfp-hide">
+         <div class="account-container lightbox-inner">
+            <div class="account-login-inner">
+               <h3 class="uppercase">Đăng nhập</h3>
+               <form th:action="@{/xu-ly}" method="POST" th:object="${submitForm}" class="woocommerce-form woocommerce-form-login login" >
+                  <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                     <label for="username">Tên tài khoản <span class="required">*</span></label>
+                     <input th:field="*{username}" type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="" />				
+                  </p>
+                  <div class="has-error">
+         		 	<span style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" ></span>
+         		  </div>
+                  <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                     <label for="password">Mật khẩu <span class="required">*</span></label>
+                     <input th:field="*{password}" class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
+                      
+                  </p>
+                  <div class="has-error">
+         			 	<span style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>     		
+         			</div>	
+                  <p class="form-row">
+                      
+                     <button type="submit" class="woocommerce-Button button" name="login" value="Đăng nhập">Đăng nhập</button>
+   
+                  </p>
+ 
+               </form>
+            </div>
+            <!-- .login-inner -->
+         </div>
+         <!-- .account-login-container -->
+      </div>
+	  <script type='text/javascript'
+	  src="../content/plugins/themify-wc-product-filter/public/js/wpf-publicd279.js?ver=1.1.5"></script>
+		<script type='text/javascript' src="../includes/js/hoverIntent.minc245.js?ver=1.8.1"></script>
+		<script type='text/javascript'>
+		
+		var msgError = '[[${msgError}]]';
+		var msgSuccess = '[[${msgSuccess}]]';
+	 	if(msgError){
+	 		alert(msgError)
+	 	}
+	 	
+	 	if(msgSuccess){
+	 		alert(msgSuccess)
+	 	}
+			var flatsomeVars = { "ajaxurl": "http:\/\/mauweb.monamedia.net\/lets-travel\/wp-admin\/admin-ajax.php", "rtl": "", "sticky_height": "70" };
+		</script>
+		<script type='text/javascript' src="../content/themes/flatsome/assets/js/flatsome3b71.js?ver=3.5.0"></script>
+   </body>
+</html>

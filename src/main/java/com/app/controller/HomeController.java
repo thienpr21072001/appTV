@@ -222,5 +222,9 @@ public class HomeController {
 		return "redirect:/lich-tour/1";
 	}
 	
+	
+ 
+	
+ 
  
 }
